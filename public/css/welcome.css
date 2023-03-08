@@ -1,0 +1,126 @@
+@font-face {
+    font-family: Golden Age;
+    src: url(../fonts/golden-age.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golden Age';
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../image/background/BG.svg);
+    
+}
+
+.left{
+    width: 50%;
+}
+
+.right{
+    width: 50%;
+}
+.right img{
+    width: 45rem;
+    animation-name: gameboy;
+    position: relative;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+@keyframes gameboy {
+    0% {transform: translateY(10px);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(10px);}
+}
+
+img.logo{
+    width: 5rem;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    transition: .5s;
+}
+
+img.logo:hover{
+    opacity: 50%;
+}
+
+.desc{
+    width: 300px;
+}
+
+h1.fw-bold{
+    font-size: 4.5rem;
+    color: black;
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+a.btn-auth{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: .1rem;
+    transition: .5s;
+    background: white;
+    padding: .5rem 2rem;
+    font-size: 1.5rem;
+    box-shadow:0px 10px rgba(0, 0, 0, 1);
+}
+
+a.btn-auth:hover{
+    transform: translateY(-5px);
+    color: blue;
+    box-shadow: 0px 0px transparent;
+}
+
+.text-absolute{
+    font-weight: 800;
+    font-size: 6rem;
+    color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+    :root{
+        font-size: 14px;
+    }
+    .text-absolute{
+        font-size: 4rem;
+    }
+    h1.fw-bold{
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text; 
+        -webkit-font-smoothing: antialiased;
+        background-image: url(../image/background/bg-landing-pg.png);
+        background-repeat: repeat;
+        background-size: cover;
+    }
+    .left{
+        width: 100%;
+        text-align: center;
+    }
+    .desc{
+        text-align: center;
+        width: 100%;
+    }
+    .right{
+        display: none;
+    }
+    .container-button{
+        justify-content: center;
+    }
+
+}
+    
