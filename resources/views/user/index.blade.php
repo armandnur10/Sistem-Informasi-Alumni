@@ -11,13 +11,13 @@
                     <h1 class="h2 mb-0 ls-tight golden">Application</h1>
                 </div> <!-- Actions -->
                 <div class="col-sm-6 col-12 text-sm-end">
-                    <div class="mx-n1">
-                        <a href="/add" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                            <span class=" pe-2">
+                    <div class="mx-n1"> 
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"class="btn d-inline-flex btn-sm btn-primary mx-1">
+                            <span class="pe-2">
                                 <i class="bi bi-plus"></i>
                             </span>
                             <span>Create</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -84,5 +84,67 @@
         </div>
     </div>
 </main>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+
+                <form action="/savelist" method="post" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="mb-3">
+                        <label>Foto Profile</label>
+                        <input type="file" name="photo" required class="form-control-file">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" required name="nama">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Alamat Email</label>
+                        <input type="email" class="form-control" required name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">NISN</label>
+                        <input type="text" class="form-control" required name="nisn">
+                    </div>
+
+                    <div class="mb-3">
+                        <select name="jurusan" class="form-select" aria-label="Default select example">
+                            <option selected>Jurusan</option>
+                            <option>Teknik Komputer Jaringan</option>
+                            <option>Farmasi</option>
+                          </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Angkatan</label>
+                        <input type="number" class="form-control" required name="angkatan">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" class="form-control" required name="alamat">
+                    </div>
+                </form>
+
+        </div>
+    </div>
+      </div>
+      <div class="modal-footer">    
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection
