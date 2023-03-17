@@ -78,7 +78,6 @@
                         <p class="m-2" >{{$profile->alamat}}</p>
                     </div>
                   </div>
-
             </div>
 
         </div>
