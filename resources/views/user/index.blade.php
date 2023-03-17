@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Header -->
-<header class="bg-surface-primary border-bottom py-6">
+<header class="bg-surface-primary jru border-bottom py-6">
     <div class="container-fluid">
         <div class="mb-npx">
             <div class="row align-items-center">
@@ -32,35 +32,31 @@
                 <h5 class="mb-0">Applications</h5>
             </div>
             <div class="table-responsive">
-                <table id="myTable" class="table table-hover">
+                <table class="table table-hover">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">
-                                Photo
-                            </th>
-                            <th>Name</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Name</th>
                             <th class="nisn" scope="col">NISN</th>
-                            <th scope="col">Jurusan</th>
-                            <th scope="col">Angkatan</th>
-                            <th scope="col">Status</th>
-                            <th></th>
+                            <th class="jurusan" scope="col">Jurusan</th>
+                            <th class="angkatan" scope="col">Angkatan</th>
+                            <th class="status" scope="col">Status</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            @foreach ($profile as $row)
+                            @foreach ($user as $row)
+                            @if($row-> level == 'siswa')
                             <td>
-                                <img alt="..." src="{{asset ('storage/images/profiles/'.$row->photo)}}" class="img-profile rounded-circle">
+                                <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}"
+                                    class="img-profile rounded-circle">
                             </td>
-                            <td class="text-heading font-semibold">
-                                {{$row->nama}}
-                            </td>
-                            <td class="nisn">{{$row->nisn}}</td>
-                            <td class="text-heading font-semibold">
-                                {{$row->jurusan}}
-                            </td>
-                            <td>{{$row->angkatan}}</td>
-                            <td> Kerja </td>
+                            <td>{{$row->name}}</td>
+                            <td class="nisn" >{{$row->nisn}}</td>
+                            <td class="jurusan" >{{$row->jurusan}}</td>
+                            <td class="angkatan" >{{$row->angkatan}}</td>
+                            <td class="status" >kerja</td>
                             <td class="text-end">
                                 <form action="#" method="post">
                                     @csrf
@@ -72,15 +68,19 @@
                                     </a>
                                 </form>
                             </td>
-                            @endforeach
+                            @endif
                         </tr>
+                        @endforeach
 
                     </tbody>
+
+
+
                 </table>
-            </div>
-            <!-- <div class="card-footer border-0 py-5">
+                <!-- <div class="card-footer border-0 py-5">
                 <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
             </div> -->
+            </div>
         </div>
     </div>
 </main>

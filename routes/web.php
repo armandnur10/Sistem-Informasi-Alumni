@@ -11,7 +11,8 @@
 |
 */
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\JurusanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,19 +20,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/list', [ProfileController::class, 'index']);
+Route::get('/list', [UserController::class, 'index'])->name('user.index');
 
-Route::get('/add', [ProfileController::class, 'create'])->middleware('checklevel:admin');
+Route::get('/add', [UserController::class, 'create'])->middleware('checklevel:admin');
 
-Route::post('/savelist', 'ProfileController@store');
+Route::post('/savelist', [UserController::class, 'store']);
 
-Route::get('/list/{id}', 'ProfileController@detail');
+Route::get('/list/{id}', [UserController::class, 'detail']);
 
-Route::get('/delete/{id}', 'ProfileController@delete');
+Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 Route::view('/nyoba', 'nyoba.login');
+
+Route::resource('jurusan', JurusanController::class);
 
 Route::group(['middleware' => ['auth', 'checklevel:admin,siswa']], function () {
     route::get('/home', [HomeController::class, 'index'])->name('home');
