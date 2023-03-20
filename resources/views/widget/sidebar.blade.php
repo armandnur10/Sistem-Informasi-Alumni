@@ -117,56 +117,7 @@
                 </ul>
             </div>
         </div> <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidebarCollapse">
-            <!-- Navigation -->
-
-            <ul class="navbar-nav">
-                @if (auth()->user()->level == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="/add">
-                        <i class="bi bi-person-fill-add"></i>
-                        Tambahkan Siswa
-                    </a>
-                </li>
-                @else
-                
-                @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="/home">
-                        <i class="bi bi-house-fill"></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/list">
-                        <i class="bi bi-person-lines-fill"></i>
-                        Data Siswa
-                    </a>
-                </li>
-                
-
-            </ul> <!-- Divider -->
-            <hr class="navbar-divider my-5 opacity-20"> <!-- Navigation -->
-
-            <div class="mt-auto"></div> <!-- User (md) -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="bi bi-person-square"></i>
-                        {{ Auth::user()->name }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        <i class="bi bi-box-arrow-left"></i>
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-        </div>
+        
     </nav>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
