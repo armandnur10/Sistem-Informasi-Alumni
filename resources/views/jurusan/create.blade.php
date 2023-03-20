@@ -15,12 +15,17 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" required name="nama">
+                        <input type="text" class="form-control" required name="name">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Alamat Email</label>
                         <input type="email" class="form-control" required name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" required name="password">
                     </div>
 
                     <div class="mb-3">

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
 use Illuminate\Support\Str;
 
 
@@ -16,14 +15,17 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::Truncate();
-        User::create([
-            'name' => 'Admin Aplikasi',
-            'level'=> 'admin',
-            'email' => 'admin@gmail.com',
-            'password'=> bcrypt('admin123'),
-            'remember_token' => Str::random(60)
-
-        ]);
+            $user = new\App\Models\User();
+            $user->name = 'admin';
+            $user->email = 'admin@gmail.com';
+            $user->password = \Hash::make('admin');
+            $user->level = 'admin';
+            $user->remember_token = Str::random(60);
+            $user->nisn = '-';
+            $user->photo = 'admin.jpg'; 
+            $user->jurusan = '-';
+            $user->angkatan = '0';
+            $user->alamat = '-';
+            $user->save();
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('content')
-<p class="title">{{ __('Register') }}</p>
+<p class="title">{{ __('Login') }}</p>
 
 <form method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center "
     action="{{ route('login') }}">

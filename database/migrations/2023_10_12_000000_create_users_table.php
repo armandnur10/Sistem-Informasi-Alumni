@@ -14,12 +14,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
+            $table->Integer('id_jurusan')->unsigned()->nullable();
+            $table->foreign('id_jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
             $table->string('email')->unique();
             $table->enum('level', ['admin', 'siswa'])->default('siswa');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('nisn')->unique;
+            $table->string('photo');
+            $table->string('jurusan');
+            $table->integer('angkatan');
+            $table->text('alamat');
             $table->rememberToken();
             $table->timestamps();
         });
