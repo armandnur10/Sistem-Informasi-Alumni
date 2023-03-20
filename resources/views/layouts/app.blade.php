@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{asset ('css/index.css')}}">
     <link rel="shortcut icon" href="https://www.smkharapanbangsa.sch.id/image/logo-HB.png">
     <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap5.min.css">
+
+
 
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -34,9 +37,11 @@
 
 <body>
 
+    @inject('jurusan', 'App\Models\Jurusan')
+
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-        @include('widget.sidebar')
+        @include('widget.sidebar', ['jurusan' => $jurusan->all()])
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             @yield('content')

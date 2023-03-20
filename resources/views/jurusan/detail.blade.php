@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                     <!-- Title -->
-                    <h1 class="h2 mb-0 ls-tight golden">Application</h1>
+                    <h1 class="h2 mb-0 ls-tight golden">Jurusan</h1>
                 </div> <!-- Actions -->
                 <div class="col-sm-6 col-12 text-sm-end">
                     <div class="mx-n1">
@@ -29,9 +29,11 @@
     <div class="container-fluid list-siswa">
         <div class="card shadow border-0 mb-7">
             <div class="card-header">
-                <h5 class="mb-0">Applications</h5>
+                <h5 class="mb-0">
+                    {{ $jurusan->nama_jurusan }}
+                </h5>
             </div>
-            <div class="table-responsive" id="myTable">
+            <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class="thead-light">
                         <tr>
@@ -47,36 +49,16 @@
                     <tbody>
                         <tr>
                             @foreach ($user as $row)
-                            @if($row-> level == 'siswa')
+                            @if($row-> jurusan == $jurusan->nama_jurusan)
                             <td>
                                 <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}"
                                     class="img-profile rounded-circle">
                             </td>
                             <td>{{$row->name}}</td>
-                            <td class="nisn">{{$row->nisn}}</td>
-                            <td class="jurusan">{{$row->jurusan}}</td>
-                            <td class="angkatan">{{$row->angkatan}}</td>
-                            <td class="status">
-                                @if($row->status == 'kosong')
-                                <span class="p-1 text-dark position-relative">
-                                    {{$row->status}}
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-secondary border border-light rounded-circle">
-                                    </span>
-                                </span>
-                                @elseif($row->status == 'kuliah')
-                                <span class="p-1 text-dark position-relative">
-                                    {{$row->status}}
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
-                                    </span>
-                                </span>
-                                @elseif($row->status == 'kerja')
-                                <span class="p-1 text-dark position-relative">
-                                    {{$row->status}}
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-light rounded-circle">
-                                    </span>
-                                </span>
-                                @endif
-                            </td>
+                            <td class="nisn" >{{$row->nisn}}</td>
+                            <td class="angkatan" >{{$row->angkatan}}</td>
+                            <td class="angkatan" >{{$row->jurusan}}</td>
+                            <td class="status" >kerja</td>
                             <td class="text-end">
                                 <form action="#" method="post">
                                     @csrf
@@ -99,7 +81,7 @@
                 </table>
                 <!-- <div class="card-footer border-0 py-5">
                 <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
-            </div> -->
+                </div> -->
             </div>
         </div>
     </div>

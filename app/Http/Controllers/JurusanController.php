@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jurusan;
+use App\Models\User;
 
 class JurusanController extends Controller
 {
@@ -51,6 +52,9 @@ class JurusanController extends Controller
     public function show($id)
     {
 
+        $jurusan = Jurusan::findOrFail($id);
+        $user = User::all();
+        return view('jurusan.detail', compact('jurusan', 'user'));
     }
 
     /**

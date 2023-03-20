@@ -29,20 +29,20 @@
         <div class="row justify-content-center">
             <div class="col-md-4 border d-flex align-items-center flex-column" style="min-height:100px;">
                 <div class="profile align-items-center d-flex w-100 justify-content-center">
-                    <img src="{{asset ('storage/images/profiles/'.$profile->photo)}}" class="rounded-circle mx-2 my-4"
+                    <img src="{{asset ('storage/images/user/'.$user->photo)}}" class="rounded-circle mx-2 my-4"
                         style="object-position: center;" alt="">
                     <div class="profile-text mx-2">
-                        <p class="fw-bold fs-5">{{$profile->nama}}</p>
-                        <p class="fw-normal fs-6">{{$profile->jurusan}}</p>
+                        <p class="fw-bold fs-5">{{$user->nama}}</p>
+                        <p class="fw-normal fs-6">{{$user->jurusan}}</p>
                     </div>
                 </div>
                 <div class="angkatan py-2 border">
                     <p class="">Angkatan</p>
-                    <p class="fw-bold text-secondary fs-2 txt-angkatan">{{$profile->angkatan}}</p>
+                    <p class="fw-bold text-secondary fs-2 txt-angkatan">{{$user->angkatan}}</p>
                 </div>
                 <div class="w-100 d-flex flex-column align-items-center py-4">
                     <div class="input-group mb-3 w-75">
-                        <input type="text" class="form-control" value="{{$profile->nama}}" aria-label="Username"
+                        <input type="text" class="form-control" value="{{$user->nama}}" aria-label="Username"
                             aria-describedby="nama" disabled>
                         <span class="input-group-text" id="nama">
                             <i class="bi bi-person-fill"></i>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="input-group mb-3 w-75">
-                        <input type="text" class="form-control" value="{{$profile->nisn}}" aria-label="nisn"
+                        <input type="text" class="form-control" value="{{$user->nisn}}" aria-label="nisn"
                             aria-describedby="nisn" disabled>
                         <span class="input-group-text" id="nisn">
                             NISN
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="input-group mb-3 w-75">
-                        <input type="text" class="form-control" value="{{$profile->nisn}}" aria-label="nisn"
+                        <input type="text" class="form-control" value="{{$user->nisn}}" aria-label="nisn"
                             aria-describedby="nisn" disabled>
                         <span class="input-group-text" id="nisn">
                             <i class="bi bi-gender-ambiguous"></i>
@@ -75,7 +75,7 @@
                             Alamat
                         </span>
                         <div class="content-alamat rounded w-100 border my-2">
-                            <p class="m-2">{{$profile->alamat}}</p>
+                            <p class="m-2">{{$user->alamat}}</p>
                         </div>
                     </div>
 

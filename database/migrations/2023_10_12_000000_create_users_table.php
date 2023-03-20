@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('jurusan');
             $table->integer('angkatan');
             $table->text('alamat');
+            $table->enum('status', ['kerja', 'kuliah', 'kosong'])->default('kosong');
             $table->rememberToken();
             $table->timestamps();
         });

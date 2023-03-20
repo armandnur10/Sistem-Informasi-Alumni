@@ -64,6 +64,7 @@
                             <td class="fw-bold ">{{$row->nama_jurusan}}</td>
                             <td class="text-end">
                                 <a href="/jurusan/{{$row->id}}/edit" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="/jurusan/{{$row->id}}" class="btn btn-sm btn-secondary mx-2">See</a>
                                 <form action="/jurusan/{{$row->id}}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf

@@ -43,6 +43,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <select name="status" class="form-select" aria-label="Default select example">
+                            <option selected>status</option>
+                            <option value="kerja">Kerja</option>
+                            <option value="kuliah">Kuliah</option>
+                            <option value="kosong">Kosong</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Angkatan</label>
                         <input type="number" class="form-control" required name="angkatan">
                     </div>
