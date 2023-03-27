@@ -97,7 +97,7 @@
                 <div class="mt-auto"></div> <!-- User (md) -->
                 <ul class="navbar-nav " id="nav_accordion">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('profile.index') }}">
                             <img src="{{asset ('storage/images/user/'.Auth::user()->photo)}}"
                                 class="me-2 border rounded-circle object-fit-cover "
                                 style="width:30px;height: 30px;object-fit: cover;" alt="">
@@ -129,7 +129,6 @@
 
                     let nextEl = element.nextElementSibling;
                     let parentEl = element.parentElement;
-
 
                     if (nextEl) {
                         e.preventDefault();

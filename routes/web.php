@@ -13,6 +13,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,4 +45,6 @@ Route::resource('user', UserController::class)->middleware('checklevel:admin');
 Route::group(['middleware' => ['auth', 'checklevel:admin,siswa']], function () {
     route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 
