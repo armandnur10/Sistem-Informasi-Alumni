@@ -131,7 +131,6 @@
                     let parentEl = element.parentElement;
                     let iconArrow = element.querySelector('.bi-caret-down-fill');
 
-
                     if (nextEl) {
                         e.preventDefault();
                         let mycollapse = new bootstrap.Collapse(nextEl);

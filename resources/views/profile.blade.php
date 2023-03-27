@@ -3,8 +3,8 @@
 @section('content')
 <style>
     .image {
-        width: 90px;
-        heigt: 90px;
+        width: 100%;
+        heigt: 100%;
         margin-bottom: 15px;
     }
 </style>
@@ -16,12 +16,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{asset ('storage/images/user/'.Auth::user()->photo)}}" class="img-fluid image" alt="Responsive image">
+                                <img src="{{asset ('storage/images/user/'.Auth::user()->photo)}}" class="img-fluid image" alt="Responsive">
                             </div>
                             <div class="col-md-8">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <p>level</p>
+                                        <p>Nama</p>
                                     </div>
                                     <div class="col-md-8">
                                         <p>{{Auth::user()->name}}</p>
