@@ -21,6 +21,7 @@ class User extends Authenticatable
         'id',
         'level',
     ];
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -40,6 +41,6 @@ class User extends Authenticatable
     ];
     public function jurusan()
     {
-        return $this->belongsTo('App\Jurusan', 'id_jurusan');
+        return $this->belongsTo('App\Models\Jurusan', 'id_jurusan');
     }
 }

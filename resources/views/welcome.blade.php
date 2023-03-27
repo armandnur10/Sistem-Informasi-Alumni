@@ -38,9 +38,9 @@
                 @else
                 <a href="{{ route('login') }}" class="btn-auth">Login</a>
 
-                @if (Route::has('register'))
+                <!-- @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="btn-auth mx-4">Register</a>
-                @endif
+                @endif -->
                 @endauth
             </div>
             @endif

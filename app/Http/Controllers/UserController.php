@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
+use App\Exports\UserExport;
+use App\Imports\UserImport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 use App\Models\User;
 use App\Models\Jurusan;
 
@@ -24,6 +29,21 @@ class UserController extends Controller
         $user = User::all();
         $jurusan = Jurusan::all();
         return view('user.index', compact('user', 'jurusan'));
+    }
+
+    public function userexport()
+    {
+        return Excel::download(new UserExport, 'user.xlsx');
+    }
+
+    public function userimport(Request $request)
+    {
+        $file = request()->file('file');
+        $nama_file = $file->getClientOriginalName();
+        $file->move('DataExcel', $nama_file);
+
+        Excel::import(new UserImport, public_path('/DataExcel/'.$nama_file));
+        return redirect('/list');
     }
 
     /**
@@ -66,7 +86,9 @@ class UserController extends Controller
         }
 
         User::create($input);
-        return redirect()->route('user.index')->with('status', 'Image Has been uploaded');
+
+
+        return redirect('/list');
     }
 
     /**

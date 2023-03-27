@@ -129,7 +129,6 @@
 
                     let nextEl = element.nextElementSibling;
                     let parentEl = element.parentElement;
-                    let iconArrow = element.querySelector('.bi-caret-down-fill');
 
 
                     if (nextEl) {

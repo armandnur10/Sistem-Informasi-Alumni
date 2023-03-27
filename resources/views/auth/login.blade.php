@@ -41,10 +41,6 @@
     <div class="button mb-3">
         <button type="submit" class="btn"> {{ __('Login') }}</button>
     </div>
-    <p>
-        Tidak Punya Akun?
-        <a href="/register">Register</a>
-    </p>
 
 
 

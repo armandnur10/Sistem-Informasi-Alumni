@@ -17,13 +17,52 @@
     padding: 0;
 }
 
-.list-siswa th.sorting{
-    color: rgba(0, 0, 0, 0.5);
-    border-top: 0px;
-}
-
 .list-siswa a.text-semibold{
     cursor: default;
+}
+
+.list-siswa .dataTables_length label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem;
+}
+.list-siswa .dataTables_filter label{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1rem;
+
+}
+
+.list-siswa .dataTables_filter .form-control{
+    width: 100px;
+    margin: 0 1rem;
+
+}
+
+.list-siswa .dataTables_length .form-control{
+    width: fit-content;
+    margin: 0 1rem;
+
+}
+
+
+.list-siswa .dataTables_wrapper .row{
+    margin: 0;
+}
+
+.list-siswa .dataTables_wrapper .row .col-sm-12{
+    padding: 0;
+}
+
+
+
+
+.list-siswa .dataTables_filter label input{
+    outline: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+    padding: .5rem;
 }
 
 .list-siswa .img-profile{
@@ -47,11 +86,8 @@ p.card-text{
 
 .jurusan .input-group.btn-jurusan{
     width: fit-content;
+    outline: 3px solid rgba(0, 0, 0, 0.2);
 }
-
-
-
-
 
 /*<---------- DETAIL ---------->*/
 

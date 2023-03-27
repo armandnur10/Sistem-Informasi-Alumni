@@ -32,8 +32,8 @@
                     <img src="{{asset ('storage/images/user/'.$user->photo)}}" class="rounded-circle mx-2 my-4"
                         style="object-position: center;" alt="">
                     <div class="profile-text mx-2">
-                        <p class="fw-bold fs-5">{{$user->nama}}</p>
-                        <p class="fw-normal fs-6">{{$user->jurusan}}</p>
+                        <p class="fw-bold fs-5">{{$user->name}}</p>
+                        <p class="fw-normal fs-6">{{$user->jurusan->nama_jurusan}}</p>
                     </div>
                 </div>
                 <div class="angkatan py-2 border">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="w-100 d-flex flex-column align-items-center py-4">
                     <div class="input-group mb-3 w-75">
-                        <input type="text" class="form-control" value="{{$user->nama}}" aria-label="Username"
+                        <input type="text" class="form-control" value="{{$user->name}}" aria-label="Username"
                             aria-describedby="nama" disabled>
                         <span class="input-group-text" id="nama">
                             <i class="bi bi-person-fill"></i>

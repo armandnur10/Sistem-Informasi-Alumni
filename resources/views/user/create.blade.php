@@ -6,12 +6,11 @@
         <div class="col-md-8">
             <div class="card p-3">
 
-                <form action="/savelist" method="post" enctype="multipart/form-data">
+                <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
-
                     <div class="mb-3">
                         <label>Foto Profile</label>
-                        <input type="file" name="photo" required class="form-control-file">
+                        <input type="file" name="photo" class="form-control-file">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Nama Lengkap</label>
@@ -34,13 +33,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <select name="jurusan" class="form-select" aria-label="Default select example">
+                        <select name="id_jurusan" class="form-select" aria-label="Default select example">
                             <option selected>Jurusan</option>
                             @foreach ($jurusan as $row)
-                            <option value="{{$row->nama_jurusan}}">{{$row->nama_jurusan}}</option>
+                            <option value="{{$row->id}}">{{$row->nama_jurusan}}</option>
                             @endforeach
                         </select>
                     </div>
+
+                    
 
                     <div class="mb-3">
                         <select name="status" class="form-select" aria-label="Default select example">
@@ -48,6 +49,14 @@
                             <option value="kerja">Kerja</option>
                             <option value="kuliah">Kuliah</option>
                             <option value="kosong">Kosong</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
+                            <option selected>Jenis Kelamin</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
                         </select>
                     </div>
 

@@ -22,8 +22,7 @@ class UserSeeder extends Seeder
             $user->level = 'admin';
             $user->remember_token = Str::random(60);
             $user->nisn = '-';
-            $user->photo = 'admin.jpg'; 
-            $user->jurusan = '-';
+            $user->photo = 'admin.jpg';
             $user->angkatan = '0';
             $user->alamat = '-';
             $user->save();
