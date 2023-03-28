@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
     public function run()
     {
             $user = new\App\Models\User();
-            $user->name = 'admin';
+            $user->nama_lengkap = 'admin';
+            $user->username = 'admin';
             $user->email = 'admin@gmail.com';
             $user->password = \Hash::make('admin');
             $user->level = 'admin';
             $user->remember_token = Str::random(60);
-            $user->nisn = '-';
             $user->photo = 'admin.jpg';
             $user->angkatan = '0';
             $user->alamat = '-';

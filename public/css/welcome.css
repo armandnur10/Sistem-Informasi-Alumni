@@ -13,7 +13,9 @@
 body{
     width: 100vw;
     height: 100vh;
-    background-image: url(../image/background/BG.svg);
+    background-image: url(../image/background/bg-landing-pg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     
 }
 
@@ -56,7 +58,6 @@ img.logo:hover{
 
 h1.fw-bold{
     font-size: 4.5rem;
-    color: black;
     text-shadow: 5px 5px rgba(0, 0, 0, 0.2);
 
 }
@@ -99,7 +100,7 @@ a.btn-auth:hover{
         font-size: 4rem;
     }
     h1.fw-bold{
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text; 
         -webkit-font-smoothing: antialiased;

@@ -233,6 +233,10 @@ p.card-text{
     width: 50%;
 }
 
+.login .right form input{
+    font-family: 'Nunito';
+}
+
 
 /* LEFT */
 .login .left{
