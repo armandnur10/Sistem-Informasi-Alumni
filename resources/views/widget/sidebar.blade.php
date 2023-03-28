@@ -98,10 +98,26 @@
                 <ul class="navbar-nav " id="nav_accordion">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('profile.index') }}">
+                            @if(auth()->user()->photo == null)
+                                @if(auth()->user()->jenis_kelamin == 'laki-laki')
+                                <img src="{{asset('image/photo/man.png')}}"
+                                class="me-2 border rounded-circle object-fit-cover "
+                                style="width:30px;height: 30px;object-fit: cover;" alt="">
+                                @elseif(auth()->user()->jenis_kelamin == 'perempuan')
+                                <img src="{{asset('image/photo/woman.png')}}"
+                                class="me-2 border rounded-circle object-fit-cover "
+                                style="width:30px;height: 30px;object-fit: cover;" alt="">
+                                @else
+                                <img src="{{asset('image/photo/user.png')}}"
+                                class="me-2 border rounded-circle object-fit-cover "
+                                style="width:30px;height: 30px;object-fit: cover;" alt="">
+                                @endif
+                            @else
                             <img src="{{asset ('storage/images/user/'.Auth::user()->photo)}}"
                                 class="me-2 border rounded-circle object-fit-cover "
                                 style="width:30px;height: 30px;object-fit: cover;" alt="">
-                            {{ Auth::user()->name }}
+                            @endif
+                            {{ Auth::user()->username }}    
                         </a>
                     </li>
                     <li class="nav-item">

@@ -25,11 +25,11 @@ class UserImport implements ToModel, WithHeadingRow
         $row['id_jurusan'] = Jurusan::where('nama_jurusan', 'like', '%'.$row['id_jurusan'].'%')->first()->id;
 
         return new user([
-            'name' => $row['name'],
+            'nama_lengkap' => $row['nama_lengkap'],
+            'username' => $row['username'],
             'id_jurusan' => $row['id_jurusan'],
             'email' => $row['email'],
             'password' => $row['password'],
-            'nisn' => $row['nisn'],
             'angkatan' => $row['angkatan'],
             'alamat' => $row['alamat'],
             'status' => $row['status'],

@@ -15,18 +15,27 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('nama_lengkap');
+            $table->string('username')->nullable();
+            $table->Integer('id_jurusan')->unsigned()->nullable();
             $table->foreign('id_jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
             $table->string('email');
             $table->enum('level', ['admin', 'siswa'])->nullable()->default('siswa');
             $table->string('password');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
-            $table->string('nisn')->unique;
             $table->integer('angkatan');
             $table->text('alamat');
-            $table->enum('status', ['kerja', 'kuliah', 'kosong'])->default('kosong');
+            $table->enum('status', ['kerja', 'kuliah', 'menganggur'])->default('menganggur');
+            $table->string('tempat_kerja')->nullable();
+            $table->string('tempat_kuliah')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('nama_ayah')->nullable();
+            $table->string('nama_ibu')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
             $table->string('photo')->nullable();
-            $table->Integer('id_jurusan')->unsigned()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

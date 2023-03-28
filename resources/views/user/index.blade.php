@@ -32,7 +32,7 @@
                 <h5 class="mb-0">List Siswa</h5>
                 <div class="flex">
                     <a href="{{route('userexport')}}" class="btn btn-success m-1">Export</a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Import
                     </button>
                 </div>
@@ -42,8 +42,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th>Photo</th>
-                            <th>Name</th>
-                            <th class="nisn">NISN</th>
+                            <th>Nama Lengkap</th>
                             <th class="jurusan">Jurusan</th>
                             <th class="angkatan">Angkatan</th>
                             <th class="status">Status</th>
@@ -60,16 +59,16 @@
                         <tr>
                             <td>
                                 @if($row->photo == null)
-                                    @if($row->jenis_kelamin == 'laki-laki')
-                                    <img src="{{asset('image/photo/man.png')}}" alt="..."
-                                        class="avatar avatar-sm rounded-circle">
-                                    @elseif($row->jenis_kelamin == 'perempuan')
-                                    <img src="{{asset('image/photo/woman.png')}}" alt="..."
-                                        class="avatar avatar-sm rounded-circle">
-                                    @else
-                                    <img src="{{asset('image/photo/user.png')}}" alt="..."
-                                        class="avatar avatar-sm rounded-circle">
-                                    @endif
+                                @if($row->jenis_kelamin == 'laki-laki')
+                                <img src="{{asset('image/photo/man.png')}}" alt="..."
+                                    class="avatar avatar-sm rounded-circle">
+                                @elseif($row->jenis_kelamin == 'perempuan')
+                                <img src="{{asset('image/photo/woman.png')}}" alt="..."
+                                    class="avatar avatar-sm rounded-circle">
+                                @else
+                                <img src="{{asset('image/photo/user.png')}}" alt="..."
+                                    class="avatar avatar-sm rounded-circle">
+                                @endif
                                 @else
                                 <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}"
                                     class="img-profile rounded-circle">
@@ -146,12 +145,40 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Selesai</button>
                                     <button type="submit" class="btn btn-primary">Import</button>
                                 </div>
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Import Data</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{route ('userimport')}}" enctype="multipart/form-data" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="file" class="" name="file" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Selesai</button>
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
