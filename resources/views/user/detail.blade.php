@@ -33,7 +33,9 @@
                         style="object-position: center;" alt="">
                     <div class="profile-text mx-2">
                         <p class="fw-bold fs-5">{{$user->name}}</p>
-                        <p class="fw-normal fs-6">{{$user->jurusan->nama_jurusan}}</p>
+                        @foreach ($user->jurusans as $details)
+                        <p class="fw-normal fs-6">{{$details->nama_jurusan}}</p>
+                        @endforeach
                     </div>
                 </div>
                 <div class="angkatan py-2 border">

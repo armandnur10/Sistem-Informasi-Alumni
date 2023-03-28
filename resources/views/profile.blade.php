@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{asset ('storage/images/user/'.Auth::user()->photo)}}" class="img-fluid image" alt="Responsive">
+                                <img src="{{asset('storage/images/user/'. Auth::user()->photo)}}" class="img-fluid image" alt="responsive">
                             </div>
                             <div class="col-md-8">
                                 <div class="row">

@@ -77,7 +77,7 @@
                             </td>
                             <td>{{$row->name}}</td>
                             <td class="nisn">{{$row->nisn}}</td>
-                            <td class="jurusan">{{$row->jurusan->nama_jurusan}}</td>
+                            <td class="jurusan">{{$row->jurusan}}</td>
                             <td class="angkatan">{{$row->angkatan}}</td>
                             <td class="status">
                                 @if($row->status == 'kosong')
