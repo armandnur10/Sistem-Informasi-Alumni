@@ -21,6 +21,7 @@ class UserImport implements ToModel, WithHeadingRow
 
     public function model(array $row)
     {
+        $user = User::all();
         
         $row['id_jurusan'] = Jurusan::where('nama_jurusan', 'like', '%'.$row['id_jurusan'].'%')->first()->id;
 

@@ -55,6 +55,9 @@ class UserController extends Controller
     {
         $user = User::all();
         $jurusan = Jurusan::all();
+
+        
+
         return view ('user.create', compact('user', 'jurusan'));
     }
 
