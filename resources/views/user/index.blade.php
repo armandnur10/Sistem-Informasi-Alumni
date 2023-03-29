@@ -74,9 +74,8 @@
                                     class="img-profile rounded-circle">
                                 @endif
                             </td>
-                            <td>{{$row->name}}</td>
-                            <td class="nisn">{{$row->nisn}}</td>
-                            <td class="jurusan">{{$row->jurusan}}</td>
+                            <td>{{$row->nama_lengkap}}</td>
+                            <td class="jurusan">{{$row->jurusan->nama_jurusan}}</td>
                             <td class="angkatan">{{$row->angkatan}}</td>
                             <td class="status">
                                 @if($row->status == 'kosong')

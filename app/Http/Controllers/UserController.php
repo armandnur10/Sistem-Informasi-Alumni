@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with('jurusans')->get();
+        $user = User::all();
         $jurusan = Jurusan::all();
         return view('user.index', compact('user', 'jurusan'));
     }

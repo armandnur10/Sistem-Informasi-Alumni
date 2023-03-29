@@ -40,8 +40,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function jurusans()
+    public function jurusan()
     {
-        return $this->hasMany('App\Models\Jurusan', 'id', 'id_jurusan');
+        return $this->belongsTo('App\Models\Jurusan', 'id_jurusan');
     }
 }
