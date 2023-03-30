@@ -49,12 +49,12 @@
                     <tbody>
                         <tr>
                             @foreach ($user as $row)
-                            @if($row-> jurusan == $jurusan->nama_jurusan)
+                            @if($row->jurusan == $jurusan->nama_jurusan)
                             <td>
                                 <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}"
                                     class="img-profile rounded-circle">
                             </td>
-                            <td>{{$row->name}}</td>
+                            <td>{{$row->nama_lengkap}}</td>
                             <td class="nisn" >{{$row->nisn}}</td>
                             <td class="angkatan" >{{$row->angkatan}}</td>
                             <td class="angkatan" >{{$row->jurusan}}</td>

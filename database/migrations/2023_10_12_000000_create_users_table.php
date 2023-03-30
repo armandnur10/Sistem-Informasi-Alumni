@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('angkatan');
             $table->text('alamat');
             $table->enum('status', ['kerja', 'kuliah', 'menganggur'])->default('menganggur');
+            $table->enum('status_pernikahan', ['menikah', 'belum menikah'])->default('belum menikah');
             $table->string('tempat_kerja')->nullable();
             $table->string('tempat_kuliah')->nullable();
             $table->string('no_hp')->nullable();
