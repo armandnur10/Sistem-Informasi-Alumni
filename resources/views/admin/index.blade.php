@@ -1,33 +1,14 @@
 @extends('layouts.app')
 
+@section('title', 'List Siswa')
+
 @section('content')
 <!-- Header -->
-<header class="bg-surface-primary jru border-bottom py-6">
-    <div class="container-fluid">
-        <div class="mb-npx">
-            <div class="row align-items-center">
-                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                    <!-- Title -->
-                    <h1 class="h2 mb-0 ls-tight ">Data Siswa</h1>
-                </div> <!-- Actions -->
-                <div class="col-sm-6 col-12 text-sm-end">
-                    <div class="mx-n1">
-                        <a href="/add" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                            <span class=" pe-2">
-                                <i class="bi bi-plus"></i>
-                            </span>
-                            <span>Create</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+
 <!-- Main -->
-<main class="bg-surface-secondary my-4">
-    <div class="container-fluid list-siswa">
-        <div class="card shadow border-0 mb-7">
+<main class=" my-4">
+    <div class="container-fluid list-siswa ">
+        <div class="card shadow border mb-7">
             <div class="card-header">
                 <h5 class="mb-0">List Siswa</h5>
                 <div class="flex">
@@ -41,12 +22,12 @@
                 <table class="table table-hover" id="test">
                     <thead class="thead-light">
                         <tr>
-                            <th>Photo</th>
+                            <th class="photo">Photo</th>
                             <th>Nama Lengkap</th>
                             <th class="jurusan">Jurusan</th>
                             <th class="angkatan">Angkatan</th>
                             <th class="status">Status</th>
-                            <th>Aksi</th>
+                            <th></th>
                         </tr>
 
 
@@ -57,25 +38,28 @@
                         @foreach ($user as $row)
                         @if($row-> level == 'siswa')
                         <tr>
-                            <td>
+                            <td class="photo">
                                 @if($row->photo == null)
                                 @if($row->jenis_kelamin == 'laki-laki')
                                 <img src="{{asset('image/photo/man.png')}}" alt="..."
-                                    class="avatar avatar-sm rounded-circle">
+                                    class="img-profile rounded-circle">
                                 @elseif($row->jenis_kelamin == 'perempuan')
                                 <img src="{{asset('image/photo/woman.png')}}" alt="..."
-                                    class="avatar avatar-sm rounded-circle">
+                                    class="img-profile rounded-circle">
                                 @else
                                 <img src="{{asset('image/photo/user.png')}}" alt="..."
-                                    class="avatar avatar-sm rounded-circle">
+                                    class="img-profile rounded-circle">
                                 @endif
                                 @else
                                 <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}"
                                     class="img-profile rounded-circle">
                                 @endif
                             </td>
-                            <td>{{$row->nama_lengkap}}</td>
-                            <td class="jurusan">{{$row->jurusan->nama_jurusan}}</td>
+                            <td class="column-responsive" >
+                                <p>{{$row->nama}}</p>
+                                <p class="jurusan-responsive">{{$row->jurusan_table->nama_jurusan}}</p>
+                            </td>
+                            <td class="jurusan">{{$row->jurusan_table->nama_jurusan}}</td>
                             <td class="angkatan">{{$row->angkatan}}</td>
                             <td class="status">
                                 @if($row->status == 'kosong')
@@ -101,14 +85,14 @@
                                 </span>
                                 @endif
                             </td>
-                            <td>
-                                <form action="#" method="post">
+                            <td class="text-end">
+                                <form action="#" class="action-siswa" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ url ('list/'.$row->id)}}" class="btn btn-sm btn-neutral">View</a>
+                                    <a href="{{ url ('list/'.$row->id)}}" class="btn btn-sm btn-neutral m-1">View</a>
                                     <a href="{{ url('delete/'.$row->id) }}"
-                                        class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                        <i class="bi bi-trash"></i>
+                                        class="btn btn-sm btn-square btn-neutral text-danger-hover m-1">
+                                        <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </form>
                             </td>

@@ -27,8 +27,22 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        $jurusan = Jurusan::all();
-        return view('user.index', compact('user', 'jurusan'));
+        $jurusan_table = Jurusan::all();
+        return view('admin.index', compact('user', 'jurusan_table'));
+    }
+
+    public function siswa()
+    {
+        $user = User::all();
+        $jurusan_table = Jurusan::all();
+        return view('user.detail', compact('user', 'jurusan_table'));
+    }
+
+    public function profile()
+    {
+        $user = User::all();
+        $jurusan_table = Jurusan::all();
+        return view('user.profile', compact('user', 'jurusan_table'));
     }
 
     public function userexport()
@@ -54,11 +68,9 @@ class UserController extends Controller
     public function create()
     {
         $user = User::all();
-        $jurusan = Jurusan::all();
+        $jurusan_table = Jurusan::all();
 
-        
-
-        return view ('user.create', compact('user', 'jurusan'));
+        return view ('admin.create', compact('user', 'jurusan_table'));
     }
 
     /**
@@ -81,7 +93,7 @@ class UserController extends Controller
 
         if($request->hasFile('photo'))
         {
-            $destination_path = 'public/images/user';
+            $destination_path = 'storage/images/user';
             $image = $request->file('photo');
             $image_name = time()."_".$image->getClientOriginalName();
             $path = $request->file('photo')->storeAs($destination_path, $image_name);
@@ -104,7 +116,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $jurusan = Jurusan::all();
-        return view('user.detail', compact('user', 'jurusan'));
+        return view('admin.detail', compact('user', 'jurusan'));
     }
 
     /**
@@ -116,7 +128,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('user.edit', compact('user'));
+        $jurusan_table = Jurusan::all();
+        return view('admin.edit', compact('user', 'jurusan_table'));
     }
 
     /**
@@ -140,6 +153,15 @@ class UserController extends Controller
             $data = Arr::except($data, ['password']);
         }
         
+        if($request->hasFile('photo'))
+        {
+            $destination_path = 'storage/images/user';
+            $image = $request->file('photo');
+            $image_name = time()."_".$image->getClientOriginalName();
+            $path = $request->file('photo')->storeAs($destination_path, $image_name);
+            $data['photo'] = $image_name;
+        }
+        
         $user->update($data);
         return redirect('/user');
     }
@@ -154,6 +176,6 @@ class UserController extends Controller
     {
         $data = User::findOrFail($id);
         $data->delete();
-        return back();
+        return redirect('/list');
     }
 }

@@ -15,12 +15,13 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -28,12 +29,12 @@
 
         <main>
 
-            <div class="container-fluid login">
-                <div class="d-flex w-100 h-100">
+            <div class="container-fluid d-flex justify-content-center align-items-center login bg-body-secondary">
+                <div class="d-flex border rounded">
                     <div class="left">
-                        <div class="text-absolute">
+                        <!-- <div class="text-absolute">
                             SMK <br> HARAPAN
-                        </div>
+                        </div> -->
                         <div class="contain rounded border border-3">
                             <div class="w-100 d-flex top justify-content-between">
                                 <div class="circle"></div>
@@ -51,12 +52,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right">
+                    <div class="right bg-light">
 
-                        <div class="text-absolute">
+                        <!-- <div class="text-absolute">
                             <span>HARAPAN</span>
                             BANGSA
-                        </div>
+                        </div> -->
 
                         @yield('content')
                     </div>

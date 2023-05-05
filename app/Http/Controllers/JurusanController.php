@@ -65,7 +65,7 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusan = jurusan::findOrFail($id);
+        $jurusan = Jurusan::findOrFail($id);
         return view('jurusan.edit', compact('jurusan'));
     }
 

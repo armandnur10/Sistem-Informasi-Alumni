@@ -40,8 +40,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function jurusan()
+    public function jurusan_table()
     {
-        return $this->belongsTo('App\Models\Jurusan', 'id_jurusan');
+        return $this->belongsTo('App\Models\Jurusan', 'jurusan');
     }
 }

@@ -1,18 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.user')
 @section('content')
 <!-- Header -->
-<header class="bg-surface-primary border py-6">
+<header class="bg-surface-primary border-bottom py-6">
     <div class="container-fluid">
         <div class="mb-npx">
             <div class="row align-items-center">
-            <div class="col-sm-6 col-12 mb-4 mb-sm-0 d-flex align-items-center">
+                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                     <!-- Title -->
-                    <i class="fa-solid fa-bars"></i>
-
-                    <h1 class="h2 mb-0 ls-tight ">Data Siswa</h1>
-                </div><!-- Actions -->
+                    <h1 class="h2 mb-0 ls-tight golden">Detail Siswa</h1>
+                </div> <!-- Actions -->
                 <div class="col-sm-6 col-12 text-sm-end">
                     <div class="mx-n1">
+                        <a href="/list" class="btn d-inline-flex btn-sm btn-success mx-1">
+                            <span class=" pe-2">
+                                <i class="bi bi-caret-left-fill"></i>
+                            </span>
+                            <span>Back</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -23,30 +27,34 @@
 <main class="bg-white detail my-4">
     <div class="container rounded border mh-100">
         <div class=" bg-detail border">
-            <div class="w-100 d-flex justify-content-between">
+            <div class="w-100 profile-top justify-content-between">
                 <div class="d-flex p-5">
-                    @if(Auth()->user()->photo == null)
-                    @if(Auth()->user()->jenis_kelamin == 'laki-laki')
+                    @if($user->photo == null)
+                    @if($user->jenis_kelamin == 'laki-laki')
                     <img src="{{asset('image/photo/man.png')}}" alt=""
                         class=" rounded-circle object-fit-cover" width="100px" height="100px">
-                    @elseif(Auth()->user()->jenis_kelamin == 'perempuan')
+                    @elseif($user->jenis_kelamin == 'perempuan')
                     <img src="{{asset('image/photo/woman.png')}}" alt=""
                         class=" rounded-circle object-fit-cover" width="100px" height="100px">
                     @endif
 
                     @else
-                    <img src="{{asset ('storage/images/user/'.Auth()->user()->photo)}}" alt=""
+                    <img src="{{asset ('storage/images/user/'.$user->photo)}}" alt=""
                         class=" rounded-circle object-fit-cover" style="object-fit:cover;width: 100px;height: 100px;">
                     @endif
                     <div class="mx-5 d-flex flex-column justify-content-center">
-                        <h1 class="text-name">{{Auth()->user()->nama}}</h1>
-                        <p class=" py-1">{{Auth()->user()->jurusan_table->nama_jurusan}}</p>
+                        <h1 class="text-name">{{$user->nama}}</h1>
+                        <p class=" py-1">{{$user->jurusan_table->nama_jurusan}}</p>
                         <p>
-                            {{Auth()->user()->jenis_kelamin}}
+                            {{$user->jenis_kelamin}}
                         </p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center p-5">
+                    <a href="{{route('user.edit', $user->id)}}" class="btn-success btn h-fit-content mx-5">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Edit
+                    </a>
                     <div class="dropdown">
                         <button class="btn btn-secondary " type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -54,12 +62,13 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <button class="dropdown-item" id="btn-hide">
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    Hide title
-                                </button>
+                                <a class="dropdown-item" href="{{ url('delete/'.$user->id) }}"
+                                    onclick="return confirm('Are you sure?')">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Delete Data
+                                </a>
                             </li>
-                            <a class="dropdown-item" href="{{ url('delete/'.Auth()->user()->id) }}"
+                            <a class="dropdown-item" href="{{ url('delete/'.$user->id) }}"
                                 onclick="return confirm('Are you sure?')">
                                 <i class="fa-solid fa-file-arrow-down"></i>
                                 Download PDF
@@ -71,24 +80,24 @@
             <div class="w-100 row">
                 <div class="col-md-6 border d-flex align-items-center p-3">
                     <i class="fa-solid fa-phone px-2"></i>
-                    @if(Auth()->user()->no_hp == null)
+                    @if($user->no_hp == null)
                     Kosong
                     @else
-                    {{Auth()->user()->no_hp}}
+                    {{$user->no_hp}}
                     @endif
                 </div>
                 <div class="col-md-6 border d-flex align-items-center p-3">
                     <i class="fa-solid fa-envelope px-2"></i>
-                    {{Auth()->user()->email}}
+                    {{$user->email}}
                 </div>
                 <div class="col-md-6 border d-flex align-items-center p-3">
                     <i class="fa-solid fa-location-dot px-2"></i>
-                    {{Auth()->user()->alamat}}
+                    {{$user->alamat}}
                 </div>
                 <div class="col-md-6 border d-flex align-items-center p-3">
                     <i class="fa-solid fa-graduation-cap px-2">
                     </i>
-                    {{Auth()->user()->angkatan}}
+                    {{$user->angkatan}}
                 </div>
 
             </div>
@@ -136,15 +145,15 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Lengkap</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->tempat_lahir}}, {{$user->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->no_hp}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->no_hp}}</p>
                             </div>
                         </div>
                     </div>
@@ -153,14 +162,14 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Email</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->email}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->email}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Username</p>
-                                @if (Auth()->user()->username == null)
-                                <p class="fw-bold text-subtitle">Kosong</p>
+                                @if($user->username == null)
+                                <p class="fw-bold text-subtitle">Belum ada</p>
                                 @else
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->username}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->username}}</p>
                                 @endif
                             </div>
                         </div>
@@ -170,11 +179,11 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Jurusan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->jurusan_table->nama_jurusan }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->jurusan_table->nama_jurusan }}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tahun Angkatan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->angkatan}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->angkatan}}</p>
                             </div>
                         </div>
                     </div>
@@ -183,15 +192,15 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Status</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->status}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->status}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Status Pernikahan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->status_pernikahan}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->status_pernikahan}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Jenis Kelamiin</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->jenis_kelamin }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->jenis_kelamin }}</p>
                             </div>
                         </div>
                     </div>
@@ -200,19 +209,19 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Ayah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama_ayah}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama_ayah}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Nama Ibu</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama_ibu}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama_ibu}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Pekerjaan Ayah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->pekerjaan_ayah }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->pekerjaan_ayah }}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Pekerjaan Ibu</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->pekerjaan_ibu }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->pekerjaan_ibu }}</p>
                             </div>
                         </div>
                     </div>
@@ -221,25 +230,25 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Alamat Rumah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->alamat}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->alamat}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat Kuliah</p>
                                 <p class="fw-bold text-subtitle">
-                                    @if(Auth()->user()->tempat_kuliah == null)
+                                    @if($user->tempat_kuliah == null)
                                     Belum Ada
                                     @else
-                                    {{Auth()->user()->tempat_kuliah}}
+                                    {{$user->tempat_kuliah}}
                                     @endif
                                 </p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat Kerja</p>
                                 <p class="fw-bold text-subtitle">
-                                    @if(Auth()->user()->tempat_kerja == null)
+                                    @if($user->tempat_kerja == null)
                                     Belum Ada
                                     @else
-                                    {{Auth()->user()->tempat_kerja}}
+                                    {{$user->tempat_kerja}}
                                     @endif
                                 </p>
                             </div>
@@ -253,15 +262,15 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Lengkap</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->tempat_lahir}}, {{$user->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->no_hp}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->no_hp}}</p>
                             </div>
                         </div>
                     </div>
@@ -270,11 +279,11 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Email</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->email}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->email}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Username</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->username}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->username}}</p>
                             </div>
                         </div>
                     </div>
@@ -286,11 +295,11 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Jurusan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->jurusan_table->nama_jurusan }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->jurusan_table->nama_jurusan }}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tahun Angkatan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->angkatan}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->angkatan}}</p>
                             </div>
                         </div>
                     </div>
@@ -302,19 +311,19 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Ayah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama_ayah}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama_ayah}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Nama Ibu</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->nama_ibu}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->nama_ibu}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Pekerjaan Ayah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->pekerjaan_ayah }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->pekerjaan_ayah }}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Pekerjaan Ibu</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->pekerjaan_ibu }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->pekerjaan_ibu }}</p>
                             </div>
                         </div>
                     </div>
@@ -326,15 +335,15 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Status</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->status}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->status}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Status Pernikahan</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->status_pernikahan}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->status_pernikahan}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Jenis Kelamiin</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->jenis_kelamin }}</p>
+                                <p class="fw-bold text-subtitle">{{$user->jenis_kelamin }}</p>
                             </div>
                         </div>
                     </div>
@@ -346,25 +355,25 @@
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Alamat Rumah</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->alamat}}</p>
+                                <p class="fw-bold text-subtitle">{{$user->alamat}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat Kuliah</p>
                                 <p class="fw-bold text-subtitle">
-                                    @if(Auth()->user()->tempat_kuliah == null)
+                                    @if($user->tempat_kuliah == null)
                                     Belum Ada
                                     @else
-                                    {{Auth()->user()->tempat_kuliah}}
+                                    {{$user->tempat_kuliah}}
                                     @endif
                                 </p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat Kerja</p>
                                 <p class="fw-bold text-subtitle">
-                                    @if(Auth()->user()->tempat_kerja == null)
+                                    @if($user->tempat_kerja == null)
                                     Belum Ada
                                     @else
-                                    {{Auth()->user()->tempat_kerja}}
+                                    {{$user->tempat_kerja}}
                                     @endif
                                 </p>
                             </div>

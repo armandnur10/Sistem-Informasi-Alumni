@@ -46,7 +46,7 @@
             @endif
         </div>
         <div class="right">
-            <img src="{{asset ('image/background/bg-gameboy.png')}}" alt="">
+            <!-- <img src="{{asset ('image/background/bg-gameboy.png')}}" alt=""> -->
         </div>
 
 

@@ -4,13 +4,12 @@ namespace App\Imports;
 
 use App\Models\User;
 use App\Models\Jurusan;
-use Maatwebsite\Excel\Concerns\Importable;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class UserImport implements ToModel, WithHeadingRow
 {
-    use Importable;
     /**
     * @param array $row
     *
@@ -21,20 +20,29 @@ class UserImport implements ToModel, WithHeadingRow
 
     public function model(array $row)
     {
-        $user = User::all();
         
-        $row['id_jurusan'] = Jurusan::where('nama_jurusan', 'like', '%'.$row['id_jurusan'].'%')->first()->id;
+        $row['jurusan'] = Jurusan::where('nama_jurusan', 'like', '%'.$row['jurusan'].'%')->first()->id;
 
         return new user([
-            'nama_lengkap' => $row['nama_lengkap'],
-            'username' => $row['username'],
-            'id_jurusan' => $row['id_jurusan'],
+            'nama' => $row['nama'],
+            'jurusan' => $row['jurusan'],
             'email' => $row['email'],
-            'password' => $row['password'],
+            'nisn' => $row['nisn'],
+            'no_hp' => $row['no_hp'],
             'angkatan' => $row['angkatan'],
             'alamat' => $row['alamat'],
             'status' => $row['status'],
-            'jenis kelamin' => $row['jenis_kelamin'],
+            'jenis_kelamin' => $row['jenis_kelamin'],
+            'status_pernikahan' => $row['status_pernikahan'],
+            'tempat_kerja' => $row['tempat_kerja'],
+            'tempat_kuliah' => $row['tempat_kuliah'],
+            'tempat_lahir' => $row['tempat_lahir'],
+            'tanggal_lahir' =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['tanggal_lahir'])->format('Y-m-d'),
+            'nama_ayah' => $row['nama_ayah'],
+            'nama_ibu' => $row['nama_ibu'],
+            'pekerjaan_ayah' => $row['pekerjaan_ayah'],
+            'pekerjaan_ibu' => $row['pekerjaan_ibu'],
+
         ]);
 
         

@@ -15,13 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_lengkap');
+            $table->string('nama');
             $table->string('username')->nullable();
-            $table->Integer('id_jurusan')->unsigned()->nullable();
-            $table->foreign('id_jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
+            $table->Integer('jurusan')->unsigned()->nullable();
+            $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
             $table->string('email');
+            $table->string('nisn');
             $table->enum('level', ['admin', 'siswa'])->nullable()->default('siswa');
-            $table->string('password');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->integer('angkatan');
             $table->text('alamat');
@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('tempat_kuliah')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('tempat_lahir')->nullable();
-            $table->date('tanggal_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
             $table->string('pekerjaan_ayah')->nullable();
