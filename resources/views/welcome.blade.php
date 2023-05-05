@@ -25,7 +25,7 @@
         <img src="{{asset ('image/logo/logo.png')}}" class="logo" alt="">
     </a>
 
-    <div class="container align-items-center text-dark h-100 w-100 py-5 d-flex justify-content-center">
+    <div class="container align-items-center text-light h-100 w-100 py-5 d-flex justify-content-center">
         <div class="left ">
             <p class="fs-4 fw-light opacity-75">Selamat Datang di...</p>
             <h1 class="fw-bold my-3">SMK HARAPAN <br> BANGSA</h1>
@@ -38,15 +38,15 @@
                 @else
                 <a href="{{ route('login') }}" class="btn-auth">Login</a>
 
-                @if (Route::has('register'))
+                <!-- @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="btn-auth mx-4">Register</a>
-                @endif
+                @endif -->
                 @endauth
             </div>
             @endif
         </div>
         <div class="right">
-            <img src="{{asset ('image/background/bg-gameboy.png')}}" alt="">
+            <!-- <img src="{{asset ('image/background/bg-gameboy.png')}}" alt=""> -->
         </div>
 
 

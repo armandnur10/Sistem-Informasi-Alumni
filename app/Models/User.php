@@ -15,10 +15,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
 
+    protected $table = 'users';
+    protected $guarded = [
+        'id',
+        'level',
+    ];
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -36,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function jurusan_table()
+    {
+        return $this->belongsTo('App\Models\Jurusan', 'jurusan');
+    }
 }
