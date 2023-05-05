@@ -67,7 +67,7 @@
                                     <i class="fa-solid fa-trash-can"></i>
                                     Delete Data
                                 </a>
-                            </li>
+                            </li>   
                             <a class="dropdown-item" href="{{ url('delete/'.$user->id) }}"
                                 onclick="return confirm('Are you sure?')">
                                 <i class="fa-solid fa-file-arrow-down"></i>
@@ -154,6 +154,10 @@
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
                                 <p class="fw-bold text-subtitle">{{$user->no_hp}}</p>
+                            </div>
+                            <div class="col-md-6 p-5 ">
+                                <p class="text-secondary text-subtitle">NISN</p>
+                                <p class="fw-bold text-subtitle">{{$user->nisn}}</p>
                             </div>
                         </div>
                     </div>

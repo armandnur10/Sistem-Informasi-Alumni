@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/list', [UserController::class, 'index'])->name('user.index');
+Route::get('/list', [UserController::class, 'index'])->name('user.index')->middleware('checklevel:admin');
 
 Route::get('/add', [UserController::class, 'create'])->middleware('checklevel:admin');
 
