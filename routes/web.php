@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/list', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/add', [UserController::class, 'create'])->middleware('checklevel:admin');
@@ -32,7 +34,6 @@ Route::post('/savelist', [UserController::class, 'store']);
 Route::get('/list/{id}', [UserController::class, 'detail']);
 
 Route::get('/delete/{id}', [UserController::class, 'delete']);
-
 
 Route::get('/siswa', [UserController::class, 'siswa'])->name('siswa')->middleware('checklevel:siswa');
 
