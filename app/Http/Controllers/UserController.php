@@ -143,6 +143,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $data = $request->all();
+        $id = $user->id;
 
         if($request->input('password'))
         {
@@ -163,7 +164,7 @@ class UserController extends Controller
         }
         
         $user->update($data);
-        return redirect('/user');
+        return redirect('/list/'.$id)->with('status', 'Data Berhasil Diubah');
     }
 
     /**

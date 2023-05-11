@@ -2,25 +2,14 @@
 @section('content')
 <!-- Header -->
 <header class="bg-surface-primary border-bottom py-6">
-    <div class="container-fluid">
-        <div class="mb-npx">
-            <div class="row align-items-center">
-                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                    <!-- Title -->
-                    <h1 class="h2 mb-0 ls-tight golden">Detail Siswa</h1>
-                </div> <!-- Actions -->
-                <div class="col-sm-6 col-12 text-sm-end">
-                    <div class="mx-n1">
-                        <a href="/list" class="btn d-inline-flex btn-sm btn-success mx-1">
-                            <span class=" pe-2">
-                                <i class="bi bi-caret-left-fill"></i>
-                            </span>
-                            <span>Back</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <h1 class="mx-2 h2 mb-0 ls-tight golden">Detail Siswa</h1>
+        <a href="/list" class="btn d-inline-flex btn-sm btn-success mx-2">
+            <span class=" pe-2">
+                <i class="bi bi-caret-left-fill"></i>
+            </span>
+            <span>Back</span>
+        </a>
     </div>
 </header>
 <!-- Content -->
@@ -31,11 +20,11 @@
                 <div class="d-flex p-5">
                     @if($user->photo == null)
                     @if($user->jenis_kelamin == 'laki-laki')
-                    <img src="{{asset('image/photo/man.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/man.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @elseif($user->jenis_kelamin == 'perempuan')
-                    <img src="{{asset('image/photo/woman.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/woman.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @endif
 
                     @else
@@ -67,7 +56,7 @@
                                     <i class="fa-solid fa-trash-can"></i>
                                     Delete Data
                                 </a>
-                            </li>   
+                            </li>
                             <a class="dropdown-item" href="{{ url('delete/'.$user->id) }}"
                                 onclick="return confirm('Are you sure?')">
                                 <i class="fa-solid fa-file-arrow-down"></i>
@@ -287,7 +276,11 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Username</p>
+                                @if($user->username == null)
+                                <p class="fw-bold text-subtitle">Belum ada</p>
+                                @else
                                 <p class="fw-bold text-subtitle">{{$user->username}}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -311,7 +304,7 @@
                 <div class="tab-pane fade " id="pills-orang-tua" role="tabpanel" aria-labelledby="pills-orang-tua-tab"
                     tabindex="0">
                     <div class="px-4 pb-4">
-                    <h1 class="text-title p-5">Informasi Orang Tua</h1>
+                        <h1 class="text-title p-5">Informasi Orang Tua</h1>
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Ayah</p>
