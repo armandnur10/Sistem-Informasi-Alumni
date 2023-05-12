@@ -62,6 +62,6 @@ class LoginController extends Controller
         \Auth::login($user);
         
         // Redirect home page
-        return redirect()->route('home');
+        return redirect()->route('dashboards');
     }
 }

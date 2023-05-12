@@ -17,7 +17,7 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="{{ route('dashboards')}}">
                     <i class="fa-solid fa-house"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
