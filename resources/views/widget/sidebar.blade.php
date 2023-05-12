@@ -22,7 +22,7 @@
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ route('dashboard')}}">Dashboard</a></li>
+                    <li><a class="link_name" href="{{ route('dashboards')}}">Dashboard</a></li>
                 </ul>
             </li>
 
@@ -33,7 +33,7 @@
                     <span class="link_name">List<span style="opacity:0;">.</span>Siswa</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/list">List Siswa</a></li>
+                    <li><a class="link_name" href="{{ route('user.index')}}">List Siswa</a></li>
                 </ul>
             </li>
 

@@ -6,7 +6,7 @@
 <!-- Header -->
 
 <!-- Main -->
-<main class=" my-4">
+<main class="my-4">
     <div class="container-fluid list-siswa ">
         <div class="card shadow border mb-7">
             <div class="card-header">
