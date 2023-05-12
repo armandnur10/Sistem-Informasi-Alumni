@@ -38,8 +38,10 @@
                 @endif
                 
                 <p class="text-subtitle text-black">
+                    
                     {{Auth()->user()->username}}
-                    <i class="fa-solid fa-envelope"></i>
+                </p>
+                <p class="text-subtitle text-black">
                     {{Auth()->user()->email}}
                 </p>
                 <div class="d-flex">

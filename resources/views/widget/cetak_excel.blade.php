@@ -26,7 +26,7 @@
         @if($row-> level == 'siswa')
         <tr>
             <td>{{ $row->nama }}</td>
-            <td>{{$row->jurusan_table->nama_jurusan}}</td>
+            <td>{{$row->z}}</td>
             <td>{{ $row->email }}</td>
             <td>{{ $row->nisn }}</td>
             <td>{{ $row->alamat}}</td>

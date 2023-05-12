@@ -123,7 +123,7 @@
                             @csrf
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <div class="form-group">
+                                    <div class="form-group">    
                                         <input type="file" class="" name="file" required>
                                     </div>
                                 </div>

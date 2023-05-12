@@ -37,7 +37,7 @@ class UserImport implements ToModel, WithHeadingRow
             'tempat_kerja' => $row['tempat_kerja'],
             'tempat_kuliah' => $row['tempat_kuliah'],
             'tempat_lahir' => $row['tempat_lahir'],
-            'tanggal_lahir' =>\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['tanggal_lahir'])->format('Y-m-d'),
+            'tanggal_lahir' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['tanggal_lahir'])->format('Y-m-d'),
             'nama_ayah' => $row['nama_ayah'],
             'nama_ibu' => $row['nama_ibu'],
             'pekerjaan_ayah' => $row['pekerjaan_ayah'],
@@ -45,6 +45,13 @@ class UserImport implements ToModel, WithHeadingRow
 
         ]);
 
+
         
+    }
+    public function rules(): array
+    {
+        return [
+            'tanggal_lahir' => 'date_format:d/m/Y',
+        ];
     }
 }
