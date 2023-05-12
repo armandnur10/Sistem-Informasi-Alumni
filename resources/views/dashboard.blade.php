@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <div class="row d-flex align-item-center justify-content-center">
                                 <div class="col-md-6">
-                                    <i <i class='bx bxs-user bx-lg'></i>
+                                    <i class='bx bxs-user bx-lg'></i>
                                 </div>
                                 <div class="col-md-6 ml-4">
                                     <h3 class="h3 scroll">235</h3>
