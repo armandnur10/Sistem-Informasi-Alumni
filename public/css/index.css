@@ -169,7 +169,7 @@ p.card-text{
 }
 
 .text-subtitle{
-    font-size: 1.2rem;
+    font-size: .7rem;
 }
 
 .detail .h-fit-content{
@@ -367,6 +367,9 @@ p.card-text{
 @media screen and (max-width: 1000px) {
     
 
+    .profile .btn.absolute{
+        z-index: 100;
+    }
     .login .left{
         display: none;
         width: 0%;
@@ -393,7 +396,7 @@ p.card-text{
     }
     .profile .img-profile{
         top: 20vh;
-        width: 200px;
+        width: 200px;   
         height: 200px;
     }
     .profile{
@@ -448,6 +451,23 @@ p.card-text{
 
     .jurusan-detail .edit{
         display: none;
+    }
+
+    .profile .img-header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30vh;
+    }
+
+    .profile .card-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile .img-profile{
+        position: static;
     }
 
     .list-siswa .jurusan-responsive{
