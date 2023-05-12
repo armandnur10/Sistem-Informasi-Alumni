@@ -38,12 +38,6 @@ class UserController extends Controller
         return view('user.detail', compact('user', 'jurusan_table'));
     }
 
-    public function profile()
-    {
-        $user = User::all();
-        $jurusan_table = Jurusan::all();
-        return view('user.profile', compact('user', 'jurusan_table'));
-    }
 
     public function userexport()
     {
@@ -54,9 +48,9 @@ class UserController extends Controller
     {
         $file = request()->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('DataExcel', $nama_file);
+        $file->move('excel', $nama_file);
 
-        Excel::import(new UserImport, public_path('/DataExcel/'.$nama_file));
+        Excel::import(new UserImport, public_path('/excel/'.$nama_file));
         return redirect('/list');
     }
 
