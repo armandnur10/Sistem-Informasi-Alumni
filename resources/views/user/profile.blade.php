@@ -33,19 +33,30 @@
                 </div>
 
                 @if(Auth()->user()->level == 'siswa')
-                <p class="text-subtitle text-black">{{Auth()->user()->jurusan_table->nama_jurusan}}</p>
-                <p class="text-subtitle py-1 text-black">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    {{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}
-                </p>
+                <div class="d-flex flex-column">
+                    <p class="text-subtitle">Jurusan</p>
+                    <p class="text-title text-black">
+                        {{Auth()->user()->jurusan_table->nama_jurusan}}
+                    </p>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="text-subtitle">Tempat Tanggal Lahir</p>
+                    <p class="text-title text-black">
+                        {{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}
+                    </p>
+                </div>
                 @else
                 @endif
 
                 <div class="d-flex flex-column">
                     <p class="text-subtitle">Username</p>
+                    @if(Auth()->user()->username == null)
+                    <p class="text-title text-black">Belum ada</p>
+                    @else
                     <p class="text-title text-black">
                         {{Auth()->user()->username}}
                     </p>
+                    @endif
                 </div>
                 <div class="d-flex flex-column">
                     <p class="text-subtitle">Email</p>
