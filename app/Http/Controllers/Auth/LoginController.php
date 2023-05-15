@@ -62,6 +62,12 @@ class LoginController extends Controller
         \Auth::login($user);
         
         // Redirect home page
-        return redirect()->route('dashboards');
+        if($user->level == 'admin')
+        {
+            return redirect()->route('dashboard');
+        }
+        else{
+            return redirect()->route('home');
+        }
     }
 }

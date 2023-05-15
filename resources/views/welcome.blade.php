@@ -34,7 +34,11 @@
             @if (Route::has('login'))
             <div class="d-flex container-button my-4">
                 @auth
+                @if(Auth::user()->level == 'admin')
+                <a href="{{ url('/dashboard') }}" class="btn-auth">Dasboard</a>
+                @elseif(Auth::user()->level == 'siswa')
                 <a href="{{ url('/home') }}" class="btn-auth">Home</a>
+                @endif
                 @else
                 <a href="{{ route('login') }}" class="btn-auth">Login</a>
 

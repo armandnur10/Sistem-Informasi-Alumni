@@ -16,15 +16,6 @@
             <span class="logo_name">Harapan<span style="opacity:0;">.</span>Bangsa</span>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="{{ route('dashboards')}}">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="link_name">Dashboard</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ route('dashboards')}}">Dashboard</a></li>
-                </ul>
-            </li>
 
 
             <li>
