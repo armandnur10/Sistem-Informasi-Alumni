@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboards');
 
 Route::get('/list', [UserController::class, 'index'])->name('user.index')->middleware('checklevel:admin');
 
@@ -32,7 +35,6 @@ Route::post('/savelist', [UserController::class, 'store']);
 Route::get('/list/{id}', [UserController::class, 'detail']);
 
 Route::get('/delete/{id}', [UserController::class, 'delete']);
-
 
 Route::get('/siswa', [UserController::class, 'siswa'])->name('siswa')->middleware('checklevel:siswa');
 
