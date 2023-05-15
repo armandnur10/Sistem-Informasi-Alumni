@@ -77,7 +77,7 @@
                                 </span>
                                 @endif
                             </td>
-                            <td class="text-end action">
+                            <td class="text-end">
                                 <form action="#" method="post">
                                     @csrf
                                     @method('DELETE')

@@ -16,6 +16,15 @@
             <span class="logo_name">Harapan<span style="opacity:0;">.</span>Bangsa</span>
         </div>
         <ul class="nav-links">
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/dashboard">Dashboard</a></li>
+                </ul>
+            </li>
 
 
             <li>
