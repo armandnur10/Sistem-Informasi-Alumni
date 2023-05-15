@@ -7,10 +7,10 @@
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
+                labels:  <?= json_encode($grafik_tahun['years']) ?>,
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Jumlah siswa per tahun',
+                    data: <?= json_encode($grafik_tahun['counts']) ?>,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -44,14 +44,14 @@
             type: 'pie',
             data: {
               labels: [
-              'Red',
-              'Blue',
-              'Yellow',
-              'Green'
+              'Teknik Komputer dan Jaringan',
+              'Farmasi Kesehatan',
+              'Akuntansi Komputer',
+              'Teknik Laboratorium Medis'
             ],
             datasets: [{
               label: 'My First Dataset',
-              data: [100, 50, 100, 80],
+              data: [{{$jumlah_perjurusan['tkj']}}, {{$jumlah_perjurusan['fk']}}, {{$jumlah_perjurusan['ak']}}, {{$jumlah_perjurusan['tlm']}}],
               backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',

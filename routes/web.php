@@ -14,7 +14,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,9 +21,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboards');
+Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
+    Route::get('/dashboard', [HomeController::class, 'admin'])->name('dashboard');
+});
+
+Route::group(['middleware' => ['auth', 'checklevel:siswa']], function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
 
 Route::get('/list', [UserController::class, 'index'])->name('user.index')->middleware('checklevel:admin');
 
@@ -49,9 +53,7 @@ Route::get('nyoba', function(){
     return view('widget.nyoba');
 });
 
-Route::group(['middleware' => ['auth', 'checklevel:admin,siswa']], function () {
-    route::get('/home', [HomeController::class, 'index'])->name('home');
-});
+
 
 
 Route::resource('/profile', ProfileController::class);

@@ -17,12 +17,12 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="{{ route('dashboards')}}">
+                <a href="/dashboard">
                     <i class="fa-solid fa-house"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ route('dashboards')}}">Dashboard</a></li>
+                    <li><a class="link_name" href="/dashboard">Dashboard</a></li>
                 </ul>
             </li>
 

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @include('layouts.css')
+@section('title', 'Dashboard')
 @section('content')
+
 <body class="g-sidenav-show">
     <main class="my-4 dashboard">
     <div class="p-4" id="main-content">
@@ -81,8 +83,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="card col-md-10 my-4">
+                    <div class="card-body">
+                        <canvas id="chartMy" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
         </div>
-    </div>
+        </div>
+        </div>
     </main>
     @include('layouts.js')
 </body>

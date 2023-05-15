@@ -18,7 +18,10 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->level == 'admin') {
+            return redirect('/dashboard');
+        }
+        else if (Auth::check() && Auth::user()->level == 'siswa') {
             return redirect('/home');
         }
 

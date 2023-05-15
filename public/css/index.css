@@ -168,8 +168,11 @@ p.card-text{
     font-weight: 600;
 }
 
-.text-subtitle{
+.profile .text-subtitle{
     font-size: .7rem;
+}
+.text-subtitle{
+    font-size: 1.2rem;
 }
 
 .detail .h-fit-content{
@@ -466,8 +469,18 @@ p.card-text{
         align-items: center;
     }
 
+    .profile .card{
+        height: 100vh;
+    }
+
+    .profile .col-md-8 {
+        height: 100vh;
+    }
+
     .profile .img-profile{
         position: static;
+        width: 100px;
+        height: 100px;
     }
 
     .list-siswa .jurusan-responsive{
@@ -499,6 +512,19 @@ p.card-text{
     }
 
     
+}
+
+@media screen and (min-width: 300px) and (max-width: 768px) {
+    .dashboard .col-md-3{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (min-width: 450px) {
+    .dashboard .grafik .col-md-6{
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 500px) {
