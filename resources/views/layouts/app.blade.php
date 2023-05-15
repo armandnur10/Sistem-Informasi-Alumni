@@ -67,6 +67,9 @@
                 <li><a href="/list">List Siswa</a></li>
                 <li><a href="/add">Tambahkan Siswa</a></li>
                 <li><a href="/jurusan">Jurusan</a></li>
+                <li><a href="/profile">
+                    {{Auth()->user()->nama}}
+                </a></li>
             </ul>
         </section>
 

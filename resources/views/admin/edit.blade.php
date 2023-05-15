@@ -106,6 +106,14 @@
                                 </div>
 
                                 <div class="input-group mb-3">
+                                    <span class="input-group-text" id="username">
+                                    <i class="fa-solid fa-user"></i>
+                                    </span>
+                                    <input type="text" value="{{$user->username}}" class="form-control" name="username" placeholder="username"
+                                        aria-label="username" aria-describedby="username" required>
+                                </div>
+
+                                <div class="input-group mb-3">
                                     <span class="input-group-text" id="password">
                                         <i class="fa-solid fa-lock"></i>
                                     </span>

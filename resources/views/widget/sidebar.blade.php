@@ -75,6 +75,7 @@
 
             <li>
                 <div class="profile-details">
+                    <a href="/profile">
                     <div class="profile-content">
                         @if($row->photo == null)
                         @if($row->jenis_kelamin == 'laki-laki')
@@ -88,6 +89,8 @@
                         <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}">
                         @endif
                     </div>
+                    </a>
+                    
                     <a class="no-hover" href="/profile">
                     <div class="name-job">
                         <div class="profile_name">{{Auth()->user()->nama}}</div>
