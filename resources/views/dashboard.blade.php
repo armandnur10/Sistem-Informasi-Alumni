@@ -11,15 +11,11 @@
                         <div class="card-body">
                             <div class="row d-flex align-item-center justify-content-center">
                                 <div class="col-md-6">
-                                    <i <i class='bx bxs-user bx-lg'></i>
+                                    <i class='bx bxs-user bx-lg'></i>
                                 </div>
                                 <div class="col-md-6 ml-4">
                                     <h3 class="h3 scroll">235</h3>
-                                    <span style="font-family: Marker Felt;">Teknik Laboratorium medik</span>
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="" class="btn btn-dark btn-sm rounded-pill">Detail</a>
+                                    <span>Teknik Laboratorium medik</span>
                                 </div>
                             </div>
                         </div>
@@ -34,11 +30,7 @@
                                 </div>
                                 <div class="col-md-6 ml-4">
                                     <h3 class="h3 scroll">235</h3>
-                                    <span style="font-family: Marker Felt;">Teknik Komputer Dan Jaringan</span>
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="" class="btn btn-dark btn-sm rounded-pill">Detail</a>
+                                    <span>Teknik Komputer Jaringan</span>
                                 </div>
                             </div>
                       </div>
@@ -49,15 +41,11 @@
                         <div class="card-body">
                             <div class="row d-flex align-item-center justify-content-center">
                                 <div class="col-md-6">
-                                    <i <i class='bx bxs-user bx-lg'></i>
+                                    <i class='bx bxs-user bx-lg'></i>
                                 </div>
                                 <div class="col-md-6 ml-4">
                                     <h3 class="h3 scroll">235</h3>
-                                    <span style="font-family: Marker Felt;">Akuntansi Komputer</span>
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="" class="btn btn-dark btn-sm rounded-pill">Detail</a>
+                                    <span>Akuntansi Komputer</span>
                                 </div>
                             </div>
                       </div>
@@ -68,15 +56,11 @@
                         <div class="card-body">
                             <div class="row d-flex align-item-center justify-content-center">
                                 <div class="col-md-6">
-                                    <i <i class='bx bxs-user bx-lg'></i>
+                                    <i class='bx bxs-user bx-lg'></i>
                                 </div>
                                 <div class="col-md-6 ml-4">
                                     <h3 class="h3 scroll">235</h3>
-                                    <span style="font-family: Marker Felt;">Farmasi Kesehatan</span>
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="" class="btn btn-dark btn-sm rounded-pill">Detail</a>
+                                    <span>Farmasi Kesehatan</span>
                                 </div>
                             </div>
                       </div>
