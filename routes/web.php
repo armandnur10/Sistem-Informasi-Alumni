@@ -21,7 +21,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
+    Route::get('/dashboard', [HomeController::class, 'admin'])->name('dashboard');
+});
+
+Route::group(['middleware' => ['auth', 'checklevel:siswa']], function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
 
 Route::get('/list', [UserController::class, 'index'])->name('user.index')->middleware('checklevel:admin');
 
@@ -32,7 +39,6 @@ Route::post('/savelist', [UserController::class, 'store']);
 Route::get('/list/{id}', [UserController::class, 'detail']);
 
 Route::get('/delete/{id}', [UserController::class, 'delete']);
-
 
 Route::get('/siswa', [UserController::class, 'siswa'])->name('siswa')->middleware('checklevel:siswa');
 
@@ -47,9 +53,7 @@ Route::get('nyoba', function(){
     return view('widget.nyoba');
 });
 
-Route::group(['middleware' => ['auth', 'checklevel:admin,siswa']], function () {
-    route::get('/home', [HomeController::class, 'index'])->name('home');
-});
+
 
 
 Route::resource('/profile', ProfileController::class);

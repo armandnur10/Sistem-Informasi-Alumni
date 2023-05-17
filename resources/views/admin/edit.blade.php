@@ -102,7 +102,7 @@
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
                                     <input type="email" value="{{$user->email}}" class="form-control" name="email" placeholder="email"
-                                        aria-label="email" aria-describedby="email" required>
+                                        aria-label="email" aria-describedby="email">
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -110,15 +110,7 @@
                                     <i class="fa-solid fa-user"></i>
                                     </span>
                                     <input type="text" value="{{$user->username}}" class="form-control" name="username" placeholder="username"
-                                        aria-label="username" aria-describedby="username" required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="password">
-                                        <i class="fa-solid fa-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control" name="password" placeholder="password"
-                                        aria-label="password" aria-describedby="password">
+                                        aria-label="username" aria-describedby="username">
                                 </div>
 
 

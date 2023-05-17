@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             $user->email = 'admin@gmail.com';
             $user->level = 'admin';
             $user->remember_token = Str::random(60);
-            $user->angkatan = '0';
             $user->alamat = '-';
             $user->save();
     }

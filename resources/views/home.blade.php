@@ -14,7 +14,7 @@
                             <p>Sebagai institusi pendidikan berusaha menyelaraskan kualitas pendidikan dengan kebutuhan dunia kerja dalam pembentukan sumber daya manusia yang unggul.</p>
                     </div>        
                     <div class="col-md-6">
-                        <img src="{{asset("image/photo/gambarsekolah.png")}}" class="img-fluid" alt="image">
+                        <img src="{{asset('image/photo/gambarsekolah.png')}}" class="img-fluid" alt="image">
                     </div>
                 </div>
             </section>

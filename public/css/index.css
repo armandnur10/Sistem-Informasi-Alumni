@@ -168,6 +168,9 @@ p.card-text{
     font-weight: 600;
 }
 
+.profile .text-subtitle{
+    font-size: .7rem;
+}
 .text-subtitle{
     font-size: 1.2rem;
 }
@@ -367,6 +370,9 @@ p.card-text{
 @media screen and (max-width: 1000px) {
     
 
+    .profile .btn.absolute{
+        z-index: 100;
+    }
     .login .left{
         display: none;
         width: 0%;
@@ -393,7 +399,7 @@ p.card-text{
     }
     .profile .img-profile{
         top: 20vh;
-        width: 200px;
+        width: 200px;   
         height: 200px;
     }
     .profile{
@@ -450,6 +456,33 @@ p.card-text{
         display: none;
     }
 
+    .profile .img-header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30vh;
+    }
+
+    .profile .card-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile .card{
+        height: 100vh;
+    }
+
+    .profile .col-md-8 {
+        height: 100vh;
+    }
+
+    .profile .img-profile{
+        position: static;
+        width: 100px;
+        height: 100px;
+    }
+
     .list-siswa .jurusan-responsive{
         display: block;
     }
@@ -479,6 +512,19 @@ p.card-text{
     }
 
     
+}
+
+@media screen and (min-width: 300px) and (max-width: 768px) {
+    .dashboard .col-md-3{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (min-width: 450px) {
+    .dashboard .grafik .col-md-6{
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 500px) {
