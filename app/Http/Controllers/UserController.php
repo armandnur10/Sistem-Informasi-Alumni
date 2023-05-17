@@ -176,4 +176,13 @@ class UserController extends Controller
         $data->delete();
         return redirect('/list');
     }
+
+    public function deleteAll()
+    {
+    // Hapus semua data pada model yang diinginkan
+    User::where('level', '!=', 'admin')->delete();
+
+    // Redirect ke halaman yang sesuai setelah berhasil menghapus data
+    return redirect()->back()->with('success', 'Semua data telah dihapus');
+    }
 }

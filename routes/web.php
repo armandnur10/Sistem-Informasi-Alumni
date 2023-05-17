@@ -47,6 +47,7 @@ Route::get('/export', [UserController::class, 'userexport'])->name('userexport')
 Route::post('/import', [UserController::class, 'userimport'])->name('userimport');
 
 Route::resource('jurusan', JurusanController::class)->middleware('checklevel:admin');
+
 Route::resource('user', UserController::class)->middleware('checklevel:admin');
 
 Route::get('nyoba', function(){
@@ -57,4 +58,6 @@ Route::get('nyoba', function(){
 
 
 Route::resource('/profile', ProfileController::class);
+
+Route::get('/delete-all', [UserController::class, 'deleteAll'])->name('delete-all');
 

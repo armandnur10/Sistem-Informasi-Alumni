@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.app')
 @section('content')
 <!-- Content -->
 <main class="bg-white detail my-4">
