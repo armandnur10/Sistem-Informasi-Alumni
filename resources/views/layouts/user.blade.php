@@ -17,20 +17,35 @@
     <link rel="shortcut icon" href="https://www.smkharapanbangsa.sch.id/image/logo-HB.png">
     <link rel="stylesheet" href="https://unpkg.com/@webpixels/css@1.1.5/dist/index.css">
     <link rel="stylesheet" href="{{asset ('css/index.css')}}">
+    <link rel="stylesheet" href="{{asset ('css/navbar.css')}}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <style>
+      
+      @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+    </style>
 
 </head>
 
 <body>
-    <div class="d-flex flex-column flex-lg-row h-lg-full">
-        <!-- Main content -->
-        <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            @yield('content')
-        </div>
+
+  <section class="navbar" id="navbar">
+    <div class="logo">Harapan Bangsa</div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+    </label>
+    <ul class="menu-list">
+        <li><a href="/siswa">Data Saya</a></li>
+        <li><a href="/home">Info Sekolah</a></li>
+        <li><a href="#achievement">Achievement</a></li>
+    </ul>
+  </section>
+  
+    @yield('content')
     </div>
     <script>
         const hideButton = document.getElementById('btn-hide');

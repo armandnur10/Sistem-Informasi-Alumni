@@ -1,24 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.user')
 @section('content')
-<!-- Header -->
-<header class="bg-surface-primary border py-6">
-    <div class="container-fluid">
-        <div class="mb-npx">
-            <div class="row align-items-center">
-            <div class="col-sm-6 col-12 mb-4 mb-sm-0 d-flex align-items-center">
-                    <!-- Title -->
-                    <i class="fa-solid fa-bars"></i>
-
-                    <h1 class="h2 mb-0 ls-tight ">Data Siswa</h1>
-                </div><!-- Actions -->
-                <div class="col-sm-6 col-12 text-sm-end">
-                    <div class="mx-n1">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <!-- Content -->
 <main class="bg-white detail my-4">
     <div class="container rounded border mh-100">

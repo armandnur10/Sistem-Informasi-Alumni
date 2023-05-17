@@ -13,6 +13,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Jurusan;
 
+use Illuminate\Support\Facades\DB;
+
+
 use Validator;
 
 use Storage;

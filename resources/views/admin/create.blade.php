@@ -124,15 +124,6 @@
                                     aria-describedby="nisn" required>
                             </div>
 
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="password">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <input type="password" class="form-control" name="password" placeholder="password"
-                                    aria-label="password" aria-describedby="password" required>
-                            </div>
-
-
                         </div>
                     </div>
                 </div>

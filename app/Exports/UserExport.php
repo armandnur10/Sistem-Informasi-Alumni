@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class UserExport implements  FromView,ShouldAutoSize
+class UserExport implements  FromView,ShouldAutoSize, WithStyles
 {
 
     public function view(): View
@@ -24,6 +24,11 @@ class UserExport implements  FromView,ShouldAutoSize
         return view('widget.cetak_excel', [
             'user' => $user
         ]);
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        $sheet->getStyle('j')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
     }
 
 

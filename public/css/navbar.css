@@ -1,0 +1,159 @@
+
+
+.navbar {
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+  height: 70px;
+  padding: 1em;
+  z-index: 5;
+}
+.logo{
+  font-size: 15px;
+  font-weight: 700;
+}
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+.menu-list > li {
+  margin: 0 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.menu-list > li > a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.menu-list li a:hover{
+  color: blueviolet;
+  transition: 0.5s;
+}
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+.menu-button::before{
+  display: block;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  align-self: center;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.menu-button{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  height: 4px;
+  width: 20px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.menu-button::after{
+  display: block;
+  align-self: center;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.menu-button::before {
+  content: "";
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: "";
+  margin-top: 8px;
+}
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  width: 20px;
+  transform: rotate(450deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  width: 20px;
+  transform: rotate(-360deg);
+}
+#menu-toggle:checked + .menu-button-container .menu-button{
+  margin-top: 0px;
+  width: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+
+  .menu-button-container {
+    display: flex;
+  }
+  .menu-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 50px;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu-list li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu-list li  {
+    color: white;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu-list li a {
+    color: rgb(255, 255, 255);
+  }
+  .menu-list > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    opacity: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    z-index: 13;
+  }
+  .menu-list > li > a{
+    color: transparent;
+    z-index: 15;
+  }
+
+  .menu-list > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+
+  
+}

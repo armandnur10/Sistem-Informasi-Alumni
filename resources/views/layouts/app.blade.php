@@ -20,8 +20,7 @@
     <!-------- Local -------->
     <link rel="shortcut icon" href="https://www.smkharapanbangsa.sch.id/image/logo-HB.png">
     <link rel="stylesheet" href="{{asset ('css/index.css')}}">
-    <!-- <link rel="stylesheet" href="{{asset ('css/sidebar.css')}}"> -->
-    <link rel="stylesheet" href="{{asset ('css/nyoba.css')}}">
+    <link rel="stylesheet" href="{{asset ('css/navbar.css')}}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -45,10 +44,15 @@
     @inject('jurusan', 'App\Models\Jurusan')
 
     <!-- Dashboard -->
-    @include('widget.sidebar', ['jurusan' => $jurusan->all()])
+    @if(Auth()->user()->level == 'admin')
+        @include('widget.sidebar', ['jurusan' => $jurusan->all()])
+    @else
+        @include('widget.navbar')
+    @endif
     <!-- Main content -->
+    
     <section class="home-section">
-
+        @if(Auth()->user()->level == 'admin')
         <section class="navbar-burger border" id="navbar">
             <div class="logo">
                 <img src="{{asset ('image/logo/logo.png')}}" class="img-logo" alt="">
@@ -63,7 +67,7 @@
                 <div class='menu-button'></div>
             </label>
             <ul class="menu-list">
-                <li><a href="/home">Dashboard</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="/list">List Siswa</a></li>
                 <li><a href="/add">Tambahkan Siswa</a></li>
                 <li><a href="/jurusan">Jurusan</a></li>
@@ -72,8 +76,9 @@
                 </a></li>
             </ul>
         </section>
+        @else
 
-        
+        @endif
             @yield('content')
         </section>
 

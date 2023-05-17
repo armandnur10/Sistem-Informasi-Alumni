@@ -34,7 +34,7 @@
             <td>{{ $row->status}}</td>
             <td>{{ $row->no_hp}}</td>
             <td>{{ $row->tempat_lahir}}</td>
-            <td>{{ $row->tanggal_lahir}}</td>
+            <td>{{ date('m/d/Y', strtotime($row->tanggal_lahir)) }}</td>
             <td>{{ $row->jenis_kelamin}}</td>
             <td>{{ $row->status_pernikahan}}</td>
             <td>{{ $row->tempat_kerja}}</td>
