@@ -75,7 +75,30 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $data = $request->all();
+        $id = $user->id;
+
+        if($request->input('password'))
+        {
+            $data['password'] = bcrypt($data['password']);
+        }
+        else
+        {
+            $data = Arr::except($data, ['password']);
+        }
+        
+        if($request->hasFile('photo'))
+        {
+            $destination_path = 'storage/images/user';
+            $image = $request->file('photo');
+            $image_name = time()."_".$image->getClientOriginalName();
+            $path = $request->file('photo')->storeAs($destination_path, $image_name);
+            $data['photo'] = $image_name;
+        }
+        
+        $user->update($data);
+        return redirect('/profile')->with('status', 'Data Berhasil Diubah');
     }
 
     /**

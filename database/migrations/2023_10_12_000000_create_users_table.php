@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->string('nisn');
+            $table->string('nisn')->unique();
             $table->enum('level', ['admin', 'siswa'])->nullable()->default('siswa');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
             $table->integer('angkatan')->nullable();

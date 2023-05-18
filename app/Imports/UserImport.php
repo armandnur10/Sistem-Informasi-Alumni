@@ -48,10 +48,4 @@ class UserImport implements ToModel, WithHeadingRow
 
         
     }
-    public function rules(): array
-    {
-        return [
-            'tanggal_lahir' => 'date_format:d/m/Y',
-        ];
-    }
 }

@@ -12,6 +12,7 @@
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap4.min.js"></script>
 
     <script src="https://cdn.ckeditor.com/4.20.2/standard-all/ckeditor.js"></script>
+    
 
     <!-------- Bootstrap -------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">

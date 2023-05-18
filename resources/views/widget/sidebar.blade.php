@@ -56,10 +56,14 @@
                     <i class="fa-solid fa-caret-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
+                    @if($jurusan->count() == 0)
+                    <li><a class="link_name" href="#">Tidak ada Jurusan</a></li>
+                    @else
                     <li><a class="link_name" href="#">Jurusan</a></li>
                     @foreach ($jurusan as $row)
                     <li><a href="/jurusan/{{$row->id}}">{{$row -> nama_jurusan}}</a></li>
                     @endforeach
+                    @endif
                 </ul>
             </li>
 
@@ -77,16 +81,16 @@
                 <div class="profile-details">
                     <a href="/profile">
                     <div class="profile-content">
-                        @if($row->photo == null)
-                        @if($row->jenis_kelamin == 'laki-laki')
+                        @if(Auth()->user()->photo == null)
+                        @if(Auth()->user()->jenis_kelamin == 'laki-laki')
                         <img src="{{asset('image/photo/man.png')}}" alt="...">
-                        @elseif($row->jenis_kelamin == 'perempuan')
+                        @elseif(Auth()->user()->jenis_kelamin == 'perempuan')
                         <img src="{{asset('image/photo/woman.png')}}" alt="...">
                         @else
                         <img src="{{asset('image/photo/user.png')}}" alt="...">
                         @endif
                         @else
-                        <img alt="..." src="{{asset ('storage/images/user/'.$row->photo)}}">
+                        <img alt="..." src="{{asset ('storage/images/user/'.Auth()->user()->photo)}}">
                         @endif
                     </div>
                     </a>

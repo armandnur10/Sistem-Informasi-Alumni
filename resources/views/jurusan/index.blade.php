@@ -24,6 +24,11 @@
             </div>
         </div>
 
+        @if($jurusan->count() == 0)
+        <div class="alert alert-danger" role="alert">
+            Data Jurusan Kosong
+        </div>
+        @else
         <div class="card shadow border mb-7">
             <div class="card-header">
                 <h5 class="mb-0">List Jurusan</h5>
@@ -46,7 +51,7 @@
                                 <form action="/jurusan/{{$row->id}}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger m-1">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger m-1" onclick="return confirm('Yakin ingin Menghapus ini?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -62,6 +67,7 @@
             </div> -->
             </div>
         </div>
+        @endif
     </div>
 </main>
 

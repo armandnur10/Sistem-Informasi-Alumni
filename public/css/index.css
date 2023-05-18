@@ -320,10 +320,10 @@ p.card-text{
     align-items: center;
 }
 
-.profile .card-header{
+.profile.index .card-header{
     height: 30vh;
 }
-.profile .card-body{
+.profile.index .card-body{
     min-height: 40vh;
 }
 
@@ -393,11 +393,11 @@ p.card-text{
     .login .right form .input-group, .login .right .button{
         width: 60%;
     }  
-    .profile .col-md-8{
+    .profile.index .col-md-8{
         width: 100%;
     }
 
-    .profile .card-body{
+    .profile.index .card-body{
         min-height: 60vh;
     }
     .profile .img-profile{
@@ -405,7 +405,7 @@ p.card-text{
         width: 200px;   
         height: 200px;
     }
-    .profile{
+    .profile.index{
         align-items: start;
     }
     td.status{
@@ -472,11 +472,11 @@ p.card-text{
         align-items: center;
     }
 
-    .profile .card{
+    .profile.index .card{
         height: 100vh;
     }
 
-    .profile .col-md-8 {
+    .profile.index .col-md-8 {
         height: 100vh;
     }
 

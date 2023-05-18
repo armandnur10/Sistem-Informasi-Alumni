@@ -27,7 +27,7 @@
     <div class="d-flex flex-column flex-lg-row h-lg-full">
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            <div class="container-fluid p-0 vh-100 profile">
+            <div class="container-fluid p-0 vh-100 profile index">
                 @if(Auth()->user()->level == 'admin')
                 <a href="/dashboard" class="btn absolute btn-success">
                     <i class="bi bi-caret-left-fill"></i>

@@ -60,25 +60,29 @@
                                 <p>{{$row->nama}}</p>
                                 <p class="jurusan-responsive">{{$row->jurusan_table->nama_jurusan}}</p>
                             </td>
+                            @if($row->jurusan_table->id == null || $row->jurusan_table->id < 0 || $row->jurusan_table->id > 5)
+                            <td class="jurusan" >Jurusan Tidak Dikenal</td>
+                            @else
                             <td class="jurusan">{{$row->jurusan_table->nama_jurusan}}</td>
+                            @endif
                             <td class="angkatan">{{$row->angkatan}}</td>
                             <td class="status">
-                                @if($row->status == 'kosong')
-                                <span class="p-1 text-dark position-relative">
+                                @if($row->status == 'menganggur')
+                                <span class="p-1 position-relative">
                                     {{$row->status}}
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle p-1 bg-secondary border border-light rounded-circle">
                                     </span>
                                 </span>
                                 @elseif($row->status == 'kuliah')
-                                <span class="p-1 text-dark position-relative">
+                                <span class="p-1 position-relative">
                                     {{$row->status}}
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
                                     </span>
                                 </span>
                                 @elseif($row->status == 'kerja')
-                                <span class="p-1 text-dark position-relative">
+                                <span class="p-1 position-relative">
                                     {{$row->status}}
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-light rounded-circle">
