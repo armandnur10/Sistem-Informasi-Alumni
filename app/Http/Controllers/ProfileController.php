@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\User;
 use App\Models\Jurusan;
-use App\Models\Skill;
 
 class ProfileController extends Controller
 {
@@ -64,8 +63,7 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail($id);
         $jurusan_table = Jurusan::all();
-        $skill = Skill::all();
-        return view('user.edit', compact('user', 'jurusan_table', 'skill'));
+        return view('user.edit', compact('user', 'jurusan_table'));
     }
 
     /**

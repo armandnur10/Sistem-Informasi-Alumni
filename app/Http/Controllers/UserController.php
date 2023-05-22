@@ -13,7 +13,6 @@ use PDF;
 
 use App\Models\User;
 use App\Models\Jurusan;
-use App\Models\Skill;
 
 use Illuminate\Support\Facades\DB;
 
@@ -125,8 +124,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $jurusan = Jurusan::all();
-        $skill = Skill::all();
-        return view('admin.detail', compact('user', 'jurusan', 'skill'));
+        return view('admin.detail', compact('user', 'jurusan'));
     }
 
     /**

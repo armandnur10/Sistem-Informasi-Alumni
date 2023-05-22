@@ -53,10 +53,6 @@ Route::resource('jurusan', JurusanController::class)->middleware('checklevel:adm
 
 Route::resource('user', UserController::class)->middleware('checklevel:admin');
 
-Route::resource('skill', SkillController::class)->middleware('checklevel:siswa');
-
-Route::get('/search', [SkillController::class, 'search'])->name('skill.search')->middleware('checklevel:siswa');
-
 Route::get('nyoba', function(){
     return view('widget.nyoba');
 });

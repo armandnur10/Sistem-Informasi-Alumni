@@ -45,10 +45,7 @@
                                 <i class="fa-solid fa-file-arrow-down"></i>
                                 Download PDF
                             </a>
-                            <a class="dropdown-item" href="{{ route('skill.index') }}">
-                                <i class="fa-solid fa-file-arrow-down"></i>
-                                Add Skill
-                            </a>
+
                         </ul>
                     </div>
                 </div>
@@ -231,23 +228,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="px-4 pb-4">
-                        <h1 class="text-title p-5">Informasi Lainnya</h1>
-                        <div class="row  mb-5">
-                            <div class="col-md-6 p-5">
-                                <p class="text-secondary text-subtitle">Skill</p>
-                                <ul>
-                                    @if(Auth()->user()->skill == null)
-                                    <li class="fw-bold text-subtitle">Belum Ada</li>
-                                    @else
-                                    @foreach(Auth()->user()->skill as $row)
-                                    <li class="fw-bold text-subtitle">{{ $row }}</li>
-                                    @endforeach
-                                    @endif
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="tab-pane fade " id="pills-umum" role="tabpanel" aria-labelledby="pills-umum-tab"
                     tabindex="0">
@@ -371,22 +351,6 @@
                                     {{Auth()->user()->tempat_kerja}}
                                     @endif
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade " id="pills-lainnya" role="tabpanel" aria-labelledby="pills-lainnya-tab"
-                    tabindex="0">
-                    <div class="px-4 pb-4">
-                        <h1 class="text-title p-5">Informasi Lainnya</h1>
-                        <div class="row  mb-5">
-                            <div class="col-md-6 p-5">
-                                <p class="text-secondary text-subtitle">Skill</p>
-                                <ul>
-                                    @foreach($user as $row)
-                                    <li class="fw-bold text-subtitle">{{ $row }}</li>
-                                    @endforeach
-                                </ul>
                             </div>
                         </div>
                     </div>

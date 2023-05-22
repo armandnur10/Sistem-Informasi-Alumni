@@ -58,14 +58,31 @@
         .container{
             width: 100vw;
             height: 100vh;
+            padding: 3rem;
             border: 1px solid #e7eaf0;
             border-radius: 5px;
         }
         .header{
             width: 100%;
             height: 20%;
-            background-color: #f9f9f9;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+        .header img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            background: gray;
+        }
+        .header > div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
 
     </style>
 </head>
@@ -74,8 +91,16 @@
     @foreach($user as $row)
     <div class="container">
         <div class="header">
-            <div class="profile">
-                
+            <div>
+                <p>{{$row->alamat}}</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>{{$row->nama}}</p>
+            </div>
+            <div>
+                <p>No Hp</p>
+                <p>{{$row->no_hp}}</p>
             </div>
         </div>
     </div>

@@ -18,8 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('nama');
             $table->string('username')->nullable();
             $table->Integer('jurusan')->unsigned()->nullable();
-            $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
-            $table->json('skill')->nullable();
+            $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade');
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->string('nisn')->unique();
