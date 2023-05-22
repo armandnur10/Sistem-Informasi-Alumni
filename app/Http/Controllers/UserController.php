@@ -9,9 +9,11 @@ use App\Exports\UserExport;
 use App\Imports\UserImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use PDF;
 
 use App\Models\User;
 use App\Models\Jurusan;
+use App\Models\Skill;
 
 use Illuminate\Support\Facades\DB;
 
@@ -38,7 +40,7 @@ class UserController extends Controller
     {
         $user = User::all();
         $jurusan_table = Jurusan::all();
-        return view('user.detail', compact('user', 'jurusan_table'));
+        return view('user.detail', compact('user', 'jurusan_table', ));
     }
 
 
@@ -56,6 +58,16 @@ class UserController extends Controller
         Excel::import(new UserImport, public_path('/excel/'.$nama_file));
         return redirect('/list');
     }
+
+    public function exportPDF($id)
+    {
+        $user = User::where('id', $id)->get(); // Replace `YourModel` with your actual model name and fetch the data based on the user ID
+        
+        $pdf = PDF::loadView('widget.cetak_pdf', compact('user')); // Create a PDF instance and load the view
+        
+        return $pdf->download('export.pdf'); // Download the PDF file
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -113,7 +125,8 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $jurusan = Jurusan::all();
-        return view('admin.detail', compact('user', 'jurusan'));
+        $skill = Skill::all();
+        return view('admin.detail', compact('user', 'jurusan', 'skill'));
     }
 
     /**

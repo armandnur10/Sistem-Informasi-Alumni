@@ -8,11 +8,11 @@
                 <div class="d-flex p-5">
                     @if(Auth()->user()->photo == null)
                     @if(Auth()->user()->jenis_kelamin == 'laki-laki')
-                    <img src="{{asset('image/photo/man.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/man.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @elseif(Auth()->user()->jenis_kelamin == 'perempuan')
-                    <img src="{{asset('image/photo/woman.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/woman.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @endif
 
                     @else
@@ -44,6 +44,10 @@
                                 onclick="return confirm('Are you sure?')">
                                 <i class="fa-solid fa-file-arrow-down"></i>
                                 Download PDF
+                            </a>
+                            <a class="dropdown-item" href="{{ route('skill.index') }}">
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                Add Skill
                             </a>
                         </ul>
                     </div>
@@ -121,7 +125,8 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}},
+                                    {{Auth()->user()->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
@@ -226,6 +231,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="px-4 pb-4">
+                        <h1 class="text-title p-5">Informasi Lainnya</h1>
+                        <div class="row  mb-5">
+                            <div class="col-md-6 p-5">
+                                <p class="text-secondary text-subtitle">Skill</p>
+                                <ul>
+                                    @if(Auth()->user()->skill == null)
+                                    <li class="fw-bold text-subtitle">Belum Ada</li>
+                                    @else
+                                    @foreach(Auth()->user()->skill as $row)
+                                    <li class="fw-bold text-subtitle">{{ $row }}</li>
+                                    @endforeach
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade " id="pills-umum" role="tabpanel" aria-labelledby="pills-umum-tab"
                     tabindex="0">
@@ -238,7 +260,8 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}},
+                                    {{Auth()->user()->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
@@ -279,7 +302,7 @@
                 <div class="tab-pane fade " id="pills-orang-tua" role="tabpanel" aria-labelledby="pills-orang-tua-tab"
                     tabindex="0">
                     <div class="px-4 pb-4">
-                    <h1 class="text-title p-5">Informasi Orang Tua</h1>
+                        <h1 class="text-title p-5">Informasi Orang Tua</h1>
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Ayah</p>
@@ -348,6 +371,22 @@
                                     {{Auth()->user()->tempat_kerja}}
                                     @endif
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade " id="pills-lainnya" role="tabpanel" aria-labelledby="pills-lainnya-tab"
+                    tabindex="0">
+                    <div class="px-4 pb-4">
+                        <h1 class="text-title p-5">Informasi Lainnya</h1>
+                        <div class="row  mb-5">
+                            <div class="col-md-6 p-5">
+                                <p class="text-secondary text-subtitle">Skill</p>
+                                <ul>
+                                    @foreach($user as $row)
+                                    <li class="fw-bold text-subtitle">{{ $row }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>

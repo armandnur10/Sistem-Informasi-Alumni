@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->nullable();
             $table->Integer('jurusan')->unsigned()->nullable();
             $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade'); 
+            $table->json('skill')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->string('nisn')->unique();
@@ -32,12 +33,13 @@ class CreateUsersTable extends Migration
             $table->string('tempat_kuliah')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('tempat_lahir')->nullable();
-            $table->string('tanggal_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->string('nama_ayah')->nullable();
-            $table->string('nama_ibu')->nullable();
+            $table->string('nama_ibu')->nullable(); 
             $table->string('pekerjaan_ayah')->nullable();
             $table->string('pekerjaan_ibu')->nullable();
             $table->string('photo')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

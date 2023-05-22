@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SkillController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,9 +47,15 @@ Route::get('/export', [UserController::class, 'userexport'])->name('userexport')
 
 Route::post('/import', [UserController::class, 'userimport'])->name('userimport');
 
+Route::get('/export-pdf{id}', [UserController::class, 'exportPDF'])->name('export.pdf');
+
 Route::resource('jurusan', JurusanController::class)->middleware('checklevel:admin');
 
 Route::resource('user', UserController::class)->middleware('checklevel:admin');
+
+Route::resource('skill', SkillController::class)->middleware('checklevel:siswa');
+
+Route::get('/search', [SkillController::class, 'search'])->name('skill.search')->middleware('checklevel:siswa');
 
 Route::get('nyoba', function(){
     return view('widget.nyoba');

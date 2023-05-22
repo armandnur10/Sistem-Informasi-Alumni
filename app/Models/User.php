@@ -38,10 +38,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'skill' => 'array',
     ];
 
     public function jurusan_table()
     {
         return $this->belongsTo('App\Models\Jurusan', 'jurusan');
     }
+    
 }

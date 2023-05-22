@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use App\Models\User;
-use App\Models\Jurusan;
-use App\Models\Skill;
 
-class ProfileController extends Controller
+use App\Models\Skill;
+use App\Models\User;
+
+class SkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $skill = Skill::all();
         $user = User::all();
-        $jurusan_table = Jurusan::all();
-        return view('user.profile', compact('user', 'jurusan_table'));
+        return view('user.skill', compact('skill', 'user'));
     }
 
     /**
@@ -27,10 +26,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +36,10 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
+        $input = $request->all();
         
+        Skill::create($input);
+        return redirect()->back();
     }
 
     /**
@@ -62,10 +61,16 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        $jurusan_table = Jurusan::all();
+        //
+    }
+
+    public function search(Request $request){
         $skill = Skill::all();
-        return view('user.edit', compact('user', 'jurusan_table', 'skill'));
+        $search = $request->get('search');
+        if($search){
+            $skill = Skill::where('nama_skill','LIKE','%'.$search.'%')->paginate(10);
+        }
+        return redirect()->back()->with('skill', $skill);
     }
 
     /**
@@ -77,30 +82,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $data = $request->all();
-        $id = $user->id;
-
-        if($request->input('password'))
-        {
-            $data['password'] = bcrypt($data['password']);
-        }
-        else
-        {
-            $data = Arr::except($data, ['password']);
-        }
-        
-        if($request->hasFile('photo'))
-        {
-            $destination_path = 'storage/images/user';
-            $image = $request->file('photo');
-            $image_name = time()."_".$image->getClientOriginalName();
-            $path = $request->file('photo')->storeAs($destination_path, $image_name);
-            $data['photo'] = $image_name;
-        }
-        
-        $user->update($data);
-        return redirect()->back()->with('status', 'Data Berhasil Diubah');
+        //
     }
 
     /**

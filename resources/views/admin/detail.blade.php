@@ -79,11 +79,11 @@
                                         Delete Data
                                     </a>
                                 </li>
-                                <a class="dropdown-item" href="{{ url('delete/'.$user->id) }}"
-                                    onclick="return confirm('Are you sure?')">
+                                <a class="dropdown-item" href="{{ route('export.pdf', ['id' => $user->id]) }}">
                                     <i class="fa-solid fa-file-arrow-down"></i>
                                     Download PDF
                                 </a>
+                                
                             </ul>
                         </div>
                     </div>

@@ -112,7 +112,7 @@
                                 <span class="input-group-text" id="email">
                                     <i class="fa-solid fa-envelope"></i>
                                 </span>
-                                <input type="email" class="form-control" name="email" placeholder="email (optional)"
+                                <input type="email" class="form-control" name="email" placeholder="email"
                                     aria-label="email" aria-describedby="email" required>
                             </div>
 
