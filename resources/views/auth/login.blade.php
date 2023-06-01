@@ -2,7 +2,7 @@
 @section('content')
 <p class="title">{{ __('LOGIN') }}</p>
 
-<form method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center "
+<form method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center"
     action="{{ route('login') }}">
     @csrf
 

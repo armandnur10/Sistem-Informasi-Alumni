@@ -45,11 +45,14 @@ class UserController extends Controller
 
     public function userexport()
     {
-        return Excel::download(new UserExport, 'user.xlsx');
+        return Excel::download(new UserExport, 'datalaporan.xlsx');
     }
 
     public function userimport(Request $request)
     {
+        $this->validate($request,[
+           'file' => 'required|mimes:xlsx, csv, xls'
+        ]);
         $file = request()->file('file');
         $nama_file = $file->getClientOriginalName();
         $file->move('excel', $nama_file);

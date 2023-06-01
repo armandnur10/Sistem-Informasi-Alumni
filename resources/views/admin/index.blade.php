@@ -129,7 +129,12 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <div class="form-group">    
-                                        <input type="file" class="" name="file" required>
+                                        <input type="file" class="form-control  @error('file') is-invalid @enderror" name="file" required>
+                                        @error('file')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="modal-footer">
