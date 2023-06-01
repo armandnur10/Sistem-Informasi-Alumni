@@ -95,7 +95,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ url ('list/'.$row->id)}}" class="btn btn-sm btn-neutral m-1">View</a>
-                                    <a href="{{ url('delete/'.$row->id) }}"
+                                    <a href="{{ url('delete/'.$row->id) }}" onclick="return confirm('Apakah ingin delete data?')"
                                         class="btn btn-sm btn-square btn-neutral text-danger-hover m-1">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
