@@ -83,7 +83,7 @@
                                     @method('DELETE')
                                     <a href="{{ url ('list/'.$row->id)}}" class="btn btn-sm btn-neutral">View</a>
                                     <a href="{{ url('delete/'.$row->id) }}"
-                                        class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        class="btn btn-sm btn-square btn-neutral text-danger-hover del">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </form>
