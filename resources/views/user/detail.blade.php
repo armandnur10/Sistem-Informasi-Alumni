@@ -8,11 +8,11 @@
                 <div class="d-flex p-5">
                     @if(Auth()->user()->photo == null)
                     @if(Auth()->user()->jenis_kelamin == 'laki-laki')
-                    <img src="{{asset('image/photo/man.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/man.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @elseif(Auth()->user()->jenis_kelamin == 'perempuan')
-                    <img src="{{asset('image/photo/woman.png')}}" alt=""
-                        class=" rounded-circle object-fit-cover" width="100px" height="100px">
+                    <img src="{{asset('image/photo/woman.png')}}" alt="" class=" rounded-circle object-fit-cover"
+                        width="100px" height="100px">
                     @endif
 
                     @else
@@ -40,11 +40,11 @@
                                     Hide title
                                 </button>
                             </li>
-                            <a class="dropdown-item" href="{{ url('delete/'.Auth()->user()->id) }}"
-                                onclick="return confirm('Are you sure?')">
-                                <i class="fa-solid fa-file-arrow-down"></i>
-                                Download PDF
-                            </a>
+                            <a class="dropdown-item" href="{{ route('export.pdf', ['id' => Auth()->user()->id]) }}">
+                                    <i class="fa-solid fa-file-arrow-down"></i>
+                                    Download PDF
+                                </a>
+
                         </ul>
                     </div>
                 </div>
@@ -121,7 +121,8 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}},
+                                    {{Auth()->user()->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
@@ -238,7 +239,8 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
-                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}}, {{Auth()->user()->tanggal_lahir}}</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->tempat_lahir}},
+                                    {{Auth()->user()->tanggal_lahir}}</p>
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">No Telepon</p>
@@ -279,7 +281,7 @@
                 <div class="tab-pane fade " id="pills-orang-tua" role="tabpanel" aria-labelledby="pills-orang-tua-tab"
                     tabindex="0">
                     <div class="px-4 pb-4">
-                    <h1 class="text-title p-5">Informasi Orang Tua</h1>
+                        <h1 class="text-title p-5">Informasi Orang Tua</h1>
                         <div class="row  mb-5">
                             <div class="col-md-6 p-5">
                                 <p class="text-secondary text-subtitle">Nama Ayah</p>

@@ -26,24 +26,22 @@
     <div class="d-flex flex-column flex-lg-row h-lg-full">
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            <div class="container-fluid vh-100 p-0  profile">
+            <div class="container-fluid p-0 vh-100  profile">
                 <a href="/profile" class="btn absolute btn-success">
                     <i class="bi bi-caret-left-fill"></i>
                     Back
                 </a>
-                <div class="col-md-8">
-                    <div class="col-md-12 my-3">
-                        <form action="{{route('profile.update', Auth()->user()->id)}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            {{method_field('PUT')}}
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="mb-0">Edit Akun</h5>
-                                </div>
-
-                                <div class="card-body">
-
+                <div class="col-md-8 my-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Edit Akun</h5>
+                        </div>
+                        <div class="card-body ">
+                            <form action="{{route('profile.update', Auth()->user()->id)}}" method="post"
+                                enctype="multipart/form-data" class="row">
+                                @csrf
+                                {{method_field('PUT')}}
+                                <div class="col-md-12">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="email">
                                             <i class="fa-solid fa-envelope"></i>
@@ -61,8 +59,6 @@
                                             aria-describedby="username">
                                     </div>
 
-                                </div>
-                                <div class="card-body">
                                     <div class="input-group mb-3">
                                         <input type="file" value="{{$user->photo}}" class="form-control" name="photo"
                                             id="inputGroupFile02">
@@ -80,17 +76,23 @@
                                             @endif
                                         </div>
                                     </div>
+
                                 </div>
-                                <div class="card-body">
-                                    <button type="submit" class="btn btn-primary my-5 col-md-12"> <i class="bi bi-send"></i> Submit</button>
-                                </div>
-                                
-                        </form>
+
+                                <button type="submit" class="btn btn-primary my-5 col-md-12">
+                                    <i class="bi bi-send"></i>
+                                    Submit
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

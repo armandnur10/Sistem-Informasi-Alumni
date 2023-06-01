@@ -25,7 +25,7 @@ class JurusanSeeder extends Seeder
 
                 [
                     'id' => '2',
-                    'nama_jurusan' => 'Akutansi Komputer',
+                    'nama_jurusan' => 'Akuntansi Komputer',
                 ],
 
                 [

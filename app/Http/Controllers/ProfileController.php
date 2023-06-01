@@ -39,7 +39,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -98,7 +98,7 @@ class ProfileController extends Controller
         }
         
         $user->update($data);
-        return redirect('/profile')->with('status', 'Data Berhasil Diubah');
+        return redirect()->back()->with('status', 'Data Berhasil Diubah');
     }
 
     /**
