@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('nisn')->unique();
             $table->enum('level', ['admin', 'siswa'])->nullable()->default('siswa');
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->integer('angkatan')->nullable();
             $table->text('alamat');
             $table->enum('status', ['kerja', 'kuliah', 'menganggur'])->default('menganggur');

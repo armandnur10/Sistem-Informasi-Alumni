@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistem Informasi Alumni</title>
 
     <!-------- Bootstrap -------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
@@ -40,10 +40,10 @@
                 <div class="w-100 profile-top justify-content-between">
                     <div class="d-flex p-5">
                         @if($user->photo == null)
-                        @if($user->jenis_kelamin == 'laki-laki')
+                        @if($user->jenis_kelamin == 'Laki-laki')
                         <img src="{{asset('image/photo/man.png')}}" alt="" class=" rounded-circle object-fit-cover"
                             width="100px" height="100px">
-                        @elseif($user->jenis_kelamin == 'perempuan')
+                        @elseif($user->jenis_kelamin == 'Perempuan')
                         <img src="{{asset('image/photo/woman.png')}}" alt="" class=" rounded-circle object-fit-cover"
                             width="100px" height="100px">
                         @endif

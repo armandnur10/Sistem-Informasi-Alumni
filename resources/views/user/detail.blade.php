@@ -40,11 +40,10 @@
                                     Hide title
                                 </button>
                             </li>
-                            <a class="dropdown-item" href="{{ url('delete/'.Auth()->user()->id) }}"
-                                onclick="return confirm('Are you sure?')">
-                                <i class="fa-solid fa-file-arrow-down"></i>
-                                Download PDF
-                            </a>
+                            <a class="dropdown-item" href="{{ route('export.pdf', ['id' => Auth()->user()->id]) }}">
+                                    <i class="fa-solid fa-file-arrow-down"></i>
+                                    Download PDF
+                                </a>
 
                         </ul>
                     </div>

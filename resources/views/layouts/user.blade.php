@@ -43,6 +43,7 @@
         <li><a href="/home">Info Sekolah</a></li>
         <li><a href="#achievement">Achievement</a></li>
     </ul>
+   
   </section>
   
     @yield('content')
