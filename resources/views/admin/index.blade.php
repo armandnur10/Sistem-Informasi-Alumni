@@ -41,10 +41,10 @@
                         <tr>
                             <td class="photo">
                                 @if($row->photo == null)
-                                @if($row->jenis_kelamin == 'Laki-laki')
+                                @if($row->jenis_kelamin == 'laki-laki')
                                 <img src="{{asset('image/photo/man.png')}}" alt="..."
                                     class="img-profile rounded-circle">
-                                @elseif($row->jenis_kelamin == 'Perempuan')
+                                @elseif($row->jenis_kelamin == 'perempuan')
                                 <img src="{{asset('image/photo/woman.png')}}" alt="..."
                                     class="img-profile rounded-circle">
                                 @else

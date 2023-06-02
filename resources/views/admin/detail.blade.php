@@ -40,10 +40,10 @@
                 <div class="w-100 profile-top justify-content-between">
                     <div class="d-flex p-5">
                         @if($user->photo == null)
-                        @if($user->jenis_kelamin == 'Laki-laki')
+                        @if($user->jenis_kelamin == 'laki-laki')
                         <img src="{{asset('image/photo/man.png')}}" alt="" class=" rounded-circle object-fit-cover"
                             width="100px" height="100px">
-                        @elseif($user->jenis_kelamin == 'Perempuan')
+                        @elseif($user->jenis_kelamin == 'perempuan')
                         <img src="{{asset('image/photo/woman.png')}}" alt="" class=" rounded-circle object-fit-cover"
                             width="100px" height="100px">
                         @endif
