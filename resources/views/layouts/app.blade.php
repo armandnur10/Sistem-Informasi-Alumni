@@ -108,6 +108,25 @@
                 })
         })
 
+        // SweetAlert fot delete all data
+        $(document).on('click', '.del-all', function(deleteData) {
+            deleteData.preventDefault();
+            var link = $(this).attr("data-href");
+            Swal.fire({
+                    title: 'Yakin mau hapus semua data?',
+                    text: "Data tidak bisa dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Iya, Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href=link;
+                    }
+                })
+        })
+
         // DataTable
 
         $(document).ready(function() {
