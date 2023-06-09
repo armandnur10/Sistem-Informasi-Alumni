@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 Use App\Models\User;
+use App\Rules\ValidStudentID;
 
 
 class LoginController extends Controller
@@ -45,18 +46,12 @@ class LoginController extends Controller
     {
         // Check validation - Note : you can change validation as per your requirements 
         $this->validate($request, [
-            'nisn' => 'required',   
+            'nisn' => ['required', new ValidStudentID],   
                       
         ]);
 
         // Get user record
         $user = User::where('nisn', $request->get('nisn'))->first();
-
-        // Check Condition Mobile No. Found or Not
-        if($request->get('nisn') != $user->nisn) {
-            \Session::put('errors', 'Please Register First Nisn.!!');
-            return back();
-        }        
         
         // Set Auth Details
         \Auth::login($user);
