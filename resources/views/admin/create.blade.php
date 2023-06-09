@@ -61,7 +61,7 @@
                             <h5 class="mb-0">Data Orang Tua</h5>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body"> 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="nama_ayah">
                                     <i class="fa-solid fa-mars"></i>
@@ -120,7 +120,7 @@
                                 <span class="input-group-text" id="nisn">
                                     <i class="fa-solid fa-user"></i>
                                 </span>
-                                <input type="text" class="form-control" name="nisn" placeholder="nisn" aria-label="nisn"
+                                <input type="number" class="form-control" name="nisn" placeholder="nisn" aria-label="nisn"
                                     aria-describedby="nisn" required>
                             </div>
 
@@ -149,7 +149,7 @@
                                 <span class="input-group-text" id="angkatan">
                                     <i class="fa-solid fa-graduation-cap"></i>
                                 </span>
-                                <input type="text" class="form-control" name="angkatan" placeholder="Angkatan"
+                                <input type="number" class="form-control" name="angkatan" placeholder="Angkatan"
                                     aria-label="angkatan" aria-describedby="angkatan" required>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                     <option selected>Status</option>
                                     <option value="kerja">Kerja</option>
                                     <option value="kuliah">Kuliah</option>
-                                    <option value="kosong">Kosong</option>
+                                    <option value="menganggur">menganggur</option>
                                 </select>
                             </div>
 

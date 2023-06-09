@@ -54,7 +54,7 @@
                             <td class="jurusan">{{$jurusan->nama_jurusan}}</td>
                             <td class="angkatan">{{$row->angkatan}}</td>
                             <td class="status">
-                                @if($row->status == 'kosong')
+                                @if($row->status == 'menganggur')
                                 <span class="p-1 text-dark position-relative">
                                     {{$row->status}}
                                     <span
