@@ -12,7 +12,7 @@
                     <div class="row my-5">
                         <div class="col-md-3 my-3">
                             <a href="/jurusan/1">
-                                <div class="card shadow" style=" z-index: 0;">
+                                <div class="card-dashboard shadow" style=" z-index: 0;">
                                     <div class="card-body">
                                         <div class="row d-flex align-item-center justify-content-center">
                                             <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-3 my-3">
                             <a href="jurusan/2">
-                                <div class="card shadow" style=" z-index: 0;">
+                                <div class="card-dashboard shadow" style=" z-index: 0;">
                                     <div class="card-body">
                                         <div class="row d-flex align-item-center justify-content-center">
                                             <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-3 my-3">
                             <a href="jurusan/3">
-                                <div class="card shadow" style=" z-index: 0;">
+                                <div class="card-dashboard shadow" style=" z-index: 0;">
                                     <div class="card-body">
                                         <div class="row d-flex align-item-center justify-content-center">
                                             <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-md-3 my-3">
                             <a href="/jurusan/4">
-                                <div class="card shadow" style=" z-index: 0;">
+                                <div class="card-dashboard shadow" style=" z-index: 0;">
                                     <div class="card-body">
                                         <div class="row d-flex align-item-center justify-content-center">
                                             <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -90,14 +90,14 @@
                         perbandingan jumlah alumni perjurusannya</p>
                     <div class="row my-3">
                         <div class="col-md-6 my-3">
-                            <div class="card">
+                            <div class="card shadow">
                                 <div class="card-body">
                                     <canvas id="myChart" width="400" height="400"></canvas>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 my-3">
-                            <div class="card">
+                            <div class="card shadow">
                                 <div class="card-body">
                                     <canvas id="chartMy" width="400" height="400"></canvas>
                                 </div>
