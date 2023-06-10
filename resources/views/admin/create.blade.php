@@ -137,7 +137,7 @@
                         <div class="card-body">
                             <div class="input group mb-3">
                                 <select name="jurusan" class="form-select" aria-label="Default select example">
-                                    <option selected>Jurusan</option>
+                                    <option selected value="1">Jurusan</option>
                                     @foreach ($jurusan_table as $row)
                                     <option value="{{$row->id}}">{{$row->nama_jurusan}}</option>
                                     @endforeach

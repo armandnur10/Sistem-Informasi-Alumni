@@ -289,6 +289,11 @@
                                     <p class="text-secondary text-subtitle">No Telepon</p>
                                     <p class="fw-bold text-subtitle">{{$user->no_hp}}</p>
                                 </div>
+                                
+                            <div class="col-md-6 p-5">
+                                <p class="text-secondary text-subtitle">NISN</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->nisn}}</p>
+                            </div>
                             </div>
                         </div>
                         <div class="px-4 pb-4">

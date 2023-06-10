@@ -35,16 +35,11 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <button class="dropdown-item" id="btn-hide">
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    Hide title
-                                </button>
-                            </li>
-                            <a class="dropdown-item" href="{{ route('export.pdf', ['id' => Auth()->user()->id]) }}">
+                                <a class="dropdown-item" href="{{ route('export.pdf', ['id' => Auth()->user()->id]) }}">
                                     <i class="fa-solid fa-file-arrow-down"></i>
                                     Download PDF
                                 </a>
-
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -128,6 +123,10 @@
                                 <p class="text-secondary text-subtitle">No Telepon</p>
                                 <p class="fw-bold text-subtitle">{{Auth()->user()->no_hp}}</p>
                             </div>
+                            <div class="col-md-6 p-5">
+                                <p class="text-secondary text-subtitle">NISN</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->nisn}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="px-4 pb-4">
@@ -145,6 +144,7 @@
                                 <p class="fw-bold text-subtitle">{{Auth()->user()->username}}</p>
                                 @endif
                             </div>
+                            
                         </div>
                     </div>
                     <div class="px-4 pb-4">
@@ -246,6 +246,10 @@
                                 <p class="text-secondary text-subtitle">No Telepon</p>
                                 <p class="fw-bold text-subtitle">{{Auth()->user()->no_hp}}</p>
                             </div>
+                            <div class="col-md-6 p-5">
+                                <p class="text-secondary text-subtitle">NISN</p>
+                                <p class="fw-bold text-subtitle">{{Auth()->user()->nisn}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="px-4 pb-4">
@@ -257,7 +261,11 @@
                             </div>
                             <div class="col-md-6 p-5 ">
                                 <p class="text-secondary text-subtitle">Username</p>
+                                @if (Auth()->user()->username == null)
+                                <p class="fw-bold text-subtitle">Kosong</p>
+                                @else
                                 <p class="fw-bold text-subtitle">{{Auth()->user()->username}}</p>
+                                @endif
                             </div>
                         </div>
                     </div>

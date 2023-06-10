@@ -132,11 +132,11 @@
                                 </div>
 
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text" id="username">
+                                    <span class="input-group-text" id="nisn">
                                     <i class="fa-solid fa-user"></i>
                                     </span>
-                                    <input type="text" value="{{$user->username}}" class="form-control" name="username" placeholder="username"
-                                        aria-label="username" aria-describedby="username">
+                                    <input type="text" value="{{$user->nisn}}" class="form-control" name="nisn" placeholder="nisn"
+                                        aria-label="nisn" aria-describedby="nisn">
                                 </div>
 
 
