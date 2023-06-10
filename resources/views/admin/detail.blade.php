@@ -279,7 +279,7 @@
                                 <div class="col-md-6 p-5">
                                     <p class="text-secondary text-subtitle">Nama Lengkap</p>
                                     <p class="fw-bold text-subtitle">{{$user->nama}}</p>
-                                </div>
+                                </div> 
                                 <div class="col-md-6 p-5 ">
                                     <p class="text-secondary text-subtitle">Tempat, Tanggal Lahir</p>
                                     <p class="fw-bold text-subtitle">{{$user->tempat_lahir}}, {{$user->tanggal_lahir}}
