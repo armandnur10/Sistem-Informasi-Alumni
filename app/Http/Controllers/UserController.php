@@ -94,13 +94,13 @@ class UserController extends Controller
     {
         $input = $request->all();
 
-        if($request->input('password'))
-        {
-            $input['password'] = bcrypt($input['password']);
-        }
-         $validator = Validator::make($input, [
-            'photo' => 'requred|image|mimes:jpg,jpeg,png|max:2048'
-        ]);
+        $this->validate($request,[
+            'photo' => 'requred|image|mimes:jpg,jpeg,png|max:2048',
+            'status' => 'required',
+            'id_jurusan' => 'required',
+            'status_pernikahan' => 'required',
+            'jenis_kelamin' => 'required',
+         ]);
 
         if($request->hasFile('photo'))
         {

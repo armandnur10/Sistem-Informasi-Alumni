@@ -7,6 +7,15 @@
 
 <main class=" my-4">
     <div class="container-fluid">
+        @if (count($errors) > 0 )
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>Data Siswa Kosong</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row justify-content-center">
@@ -15,6 +24,7 @@
                         <div class="card-header">
                             <h5 class="mb-0">Data Profile</h5>
                         </div>
+
 
                         <div class="card-body">
                             <div class="input-group mb-3">
@@ -61,7 +71,7 @@
                             <h5 class="mb-0">Data Orang Tua</h5>
                         </div>
 
-                        <div class="card-body"> 
+                        <div class="card-body">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="nama_ayah">
                                     <i class="fa-solid fa-mars"></i>
@@ -120,8 +130,8 @@
                                 <span class="input-group-text" id="nisn">
                                     <i class="fa-solid fa-user"></i>
                                 </span>
-                                <input type="number" class="form-control" name="nisn" placeholder="nisn" aria-label="nisn"
-                                    aria-describedby="nisn" required>
+                                <input type="number" class="form-control" name="nisn" placeholder="nisn"
+                                    aria-label="nisn" aria-describedby="nisn" required>
                             </div>
 
                         </div>
@@ -156,9 +166,9 @@
                     </div>
                 </div>
 
-                
 
-                
+
+
 
                 <div class="col-md-6 my-3">
                     <div class="card">
@@ -170,7 +180,7 @@
 
                             <div class="input group mb-3">
                                 <select name="status" class="form-select" aria-label="Default select example">
-                                    <option selected>Status</option>
+                                    <option value="" selected>Status</option>
                                     <option value="kerja">Kerja</option>
                                     <option value="kuliah">Kuliah</option>
                                     <option value="menganggur">menganggur</option>
@@ -179,7 +189,7 @@
 
                             <div class="input group mb-3">
                                 <select name="status_pernikahan" class="form-select">
-                                    <option selected>Status Pernikahan</option>
+                                    <option value="" selected>Status Pernikahan</option>
                                     <option value="menikah">
                                         Menikah
                                     </option>
@@ -189,7 +199,7 @@
 
                             <div class="input group mb-3">
                                 <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
-                                    <option selected>Jenis Kelamin</option>
+                                    <option value="" selected>Jenis Kelamin</option>
                                     <option value="laki-laki">Laki-laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
