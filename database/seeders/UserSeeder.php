@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             $user = new\App\Models\User();
             $user->nama = 'admin';
             $user->username = 'admin';
-            $user->nisn = 'admin';
+            $user->nisn = '123321';
             $user->email = 'admin@gmail.com';
             $user->level = 'admin';
             $user->remember_token = Str::random(60);

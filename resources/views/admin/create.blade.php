@@ -61,7 +61,7 @@
                             <h5 class="mb-0">Data Orang Tua</h5>
                         </div>
 
-                        <div class="card-body"> 
+                        <div class="card-body">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="nama_ayah">
                                     <i class="fa-solid fa-mars"></i>
@@ -120,8 +120,8 @@
                                 <span class="input-group-text" id="nisn">
                                     <i class="fa-solid fa-user"></i>
                                 </span>
-                                <input type="number" class="form-control" name="nisn" placeholder="nisn" aria-label="nisn"
-                                    aria-describedby="nisn" required>
+                                <input type="number" class="form-control" name="nisn" placeholder="nisn"
+                                    aria-label="nisn" aria-describedby="nisn" required>
                             </div>
 
                         </div>
@@ -136,12 +136,15 @@
 
                         <div class="card-body">
                             <div class="input group mb-3">
-                                <select name="jurusan" class="form-select" aria-label="Default select example">
-                                    <option selected value="1">Jurusan</option>
+                                <p><span class="badge bg-secondary">Jurusan</span></p>
+                                <select name="jurusan" class="form-select @error('status') is-invalid @enderror mt-2" aria-label="Default select example">
                                     @foreach ($jurusan_table as $row)
                                     <option value="{{$row->id}}">{{$row->nama_jurusan}}</option>
                                     @endforeach
                                 </select>
+                                @error('status')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
 
@@ -156,9 +159,9 @@
                     </div>
                 </div>
 
-                
 
-                
+
+
 
                 <div class="col-md-6 my-3">
                     <div class="card">
@@ -169,17 +172,22 @@
                         <div class="card-body">
 
                             <div class="input group mb-3">
-                                <select name="status" class="form-select" aria-label="Default select example">
-                                    <option selected>Status</option>
+                                <p><span class="badge bg-secondary">Status</span></p>
+                                <select name="status" class="form-select @error('status') is-invalid @enderror mt-2"
+                                    aria-label="Default select example">
                                     <option value="kerja">Kerja</option>
                                     <option value="kuliah">Kuliah</option>
                                     <option value="menganggur">menganggur</option>
                                 </select>
+                                @error('status')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
+
                             <div class="input group mb-3">
-                                <select name="status_pernikahan" class="form-select">
-                                    <option selected>Status Pernikahan</option>
+                                <p><span class="badge bg-primary">Status Pernikahan</span></p>
+                                <select name="status_pernikahan" class="form-select mt-2">
                                     <option value="menikah">
                                         Menikah
                                     </option>
@@ -187,13 +195,20 @@
                                 </select>
                             </div>
 
+
                             <div class="input group mb-3">
-                                <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
-                                    <option selected>Jenis Kelamin</option>
+                                <p><span class="badge bg-success">Jenis Kelamin</span></p>
+                                <select name="jenis_kelamin"
+                                    class="form-select @error('jenis_kelamin') is-invalid @enderror mt-2"
+                                    aria-label="Default select example">
                                     <option value="laki-laki">Laki-laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
+                                @error('jenis_kelamin')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                         </div>
                     </div>
                 </div>

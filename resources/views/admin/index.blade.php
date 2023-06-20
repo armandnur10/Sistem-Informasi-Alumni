@@ -16,7 +16,7 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Import
                     </button>
-                    <a data-href="{{ route('delete-all') }}" class="btn btn-danger del-all">Delete All Data</a>
+                    <!-- <a data-href="{{ route('delete-all') }}" class="btn btn-danger del-all">Delete All Data</a> -->
                 </div>
             </div>
             <div class="table-responsive">

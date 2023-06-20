@@ -20,14 +20,13 @@ class CreateUsersTable extends Migration
             $table->Integer('jurusan')->unsigned()->nullable();
             $table->foreign('jurusan')->references('id')->on('jurusan')->onDelete('cascade');
             $table->string('email')->nullable();
-            $table->string('password')->nullable();
             $table->string('nisn')->unique();
             $table->enum('level', ['admin', 'siswa'])->nullable()->default('siswa');
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
+            $table->text('jenis_kelamin')->nullable();
             $table->integer('angkatan')->nullable();
             $table->text('alamat');
-            $table->enum('status', ['kerja', 'kuliah', 'menganggur'])->default('menganggur');
-            $table->enum('status_pernikahan', ['menikah', 'belum menikah'])->default('belum menikah');
+            $table->text('status')->default('menganggur');
+            $table->text('status_pernikahan')->nullable();
             $table->string('tempat_kerja')->nullable();
             $table->string('tempat_kuliah')->nullable();
             $table->string('no_hp')->nullable();
